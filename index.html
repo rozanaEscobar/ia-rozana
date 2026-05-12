@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompts Rozana Escobar • 120 Prompts Completos Shopee</title>
+    <title>Prompts Rozana Escobar • 120 Prompts Completos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         .prompt-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15); }
         textarea { font-family: ui-monospace, monospace; font-size: 0.9rem; line-height: 1.6; }
-        .category-btn { transition: all 0.3s; }
         .category-btn.active { background-color: #db2777; color: white; }
     </style>
 </head>
@@ -18,99 +17,35 @@
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="text-center mb-16">
             <h1 class="text-6xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-violet-600 bg-clip-text text-transparent">Prompts Rozana Escobar</h1>
-            <p class="text-2xl text-gray-700 mt-4">12 Categorias • 120 Prompts Longos, Detalhados e Anti-Erro</p>
-            <p class="text-pink-600 font-medium">Funciona perfeitamente no Grok, ChatGPT, Gemini, Claude e qualquer IA</p>
+            <p class="text-2xl text-gray-700 mt-4">12 Categorias • 120 Prompts Longos e Profissionais</p>
         </div>
 
-        <!-- MENU -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16" id="menu"></div>
-
-        <!-- CONTEÚDO -->
         <div id="content" class="space-y-20"></div>
     </div>
 
     <script>
         const categories = [
-            {
-                id: "influencer",
-                icon: "🎥",
-                title: "1. Vídeos com Influencer por Nicho",
-                prompts: Array(10).fill().map((_, i) => `Você é um roteirista profissional de vídeos para afiliados Shopee. Crie um roteiro EXTREMAMENTE detalhado para vídeo de 15-20 segundos com influencer ${i % 2 === 0 ? 'feminina' : 'plus size / masculina'} usando [produto]. Defina: cenário ideal com iluminação perfeita, sequência segundo a segundo (0-3s gancho irresistível, 3-10s demonstração, 10-15s close-ups, 15-20s CTA), ângulos de câmera, tom de voz, música sugerida, texto na tela e benefícios emocionais. Forneça 6 variações de gancho e dicas de edição.`)
-            },
-            {
-                id: "reels",
-                icon: "📱",
-                title: "2. Instagram Reels & Stories",
-                prompts: Array(10).fill().map(() => `Você é especialista em conteúdo viral do Instagram. Crie roteiro completo para Reels de 15 segundos vendendo [produto]. Inclua: 10 ganchos diferentes nos primeiros 3 segundos, sequência de cenas, texto exato na tela segundo a segundo, música trending recomendada, transições suaves, demonstração clara, prova social e CTA forte com link na bio. Formate tudo de forma clara e profissional.`)
-            },
-            {
-                id: "whatsapp",
-                icon: "💬",
-                title: "3. WhatsApp & Grupos",
-                prompts: Array(10).fill().map(() => `Escreva mensagens naturais e persuasivas para grupos de WhatsApp vendendo [produto]. Tom de amiga indicando achado. Forneça 8 mensagens diferentes + follow-up dia 1, dia 3, resposta para objeções ('é caro', 'vou pensar'), script de áudio de 30 segundos e convite para lista VIP.`)
-            },
-            {
-                id: "ia",
-                icon: "🤖",
-                title: "4. Vídeos IA Curtos (Grok/Kling)",
-                prompts: Array(10).fill().map(() => `Você é expert em prompts de vídeo IA (Kling AI, Grok, Runway, Luma). Crie um prompt MUITO detalhado e otimizado para gerar vídeo vertical 9:16 de 8-10 segundos do [produto]. Especifique: movimento de câmera, iluminação, fundo, qualidade 4K realista, texto aparecendo na tela com timing, estilo cinematográfico e tudo necessário para resultado comercial profissional. Forneça 5 variações.`)
-            },
-            {
-                id: "carrossel",
-                icon: "🖼️",
-                title: "5. Carrossel & Imagens",
-                prompts: Array(10).fill().map(() => `Crie 10 slides completos de carrossel para Instagram vendendo [produto]. Para cada slide forneça: título grande, texto overlay exato, benefício principal, emoji e prompt detalhado para gerar a imagem no Flux, Midjourney ou Leonardo. Sequência lógica: problema → solução → prova → oferta → CTA.`)
-            },
-            {
-                id: "shopee",
-                icon: "🛒",
-                title: "6. Shopee Vídeo",
-                prompts: Array(10).fill().map(() => `Crie roteiro completo e otimizado para Shopee Vídeo de 30-60 segundos para [produto]. Inclua gancho forte nos primeiros 5 segundos, demonstração detalhada, benefícios emocionais e práticos, menção ao preço, prova social (reviews), escassez e CTA poderoso no final.`)
-            },
-            {
-                id: "copy",
-                icon: "✍️",
-                title: "7. Copies & Legendas Persuasivas",
-                prompts: Array(10).fill().map(() => `Você é copywriter especialista em vendas diretas. Usando AIDA, PAS e Storytelling, escreva para [produto]: 12 headlines irresistíveis + 1 descrição longa completa (1000-1500 caracteres) + legenda emocional para Reels/Carrossel + bullets de benefícios + prova social + CTA forte.`)
-            },
-            {
-                id: "seo",
-                icon: "🔍",
-                title: "8. SEO Shopee (Títulos + Descrições)",
-                prompts: Array(10).fill().map(() => `Crie 10 títulos SEO otimizados com palavras-chave principais + 1 descrição longa SEO-friendly (1200+ caracteres) com bullets, benefícios e estrutura para ranquear bem na Shopee para o produto [produto].`)
-            },
-            {
-                id: "urgencia",
-                icon: "⏰",
-                title: "9. Urgência, Ofertas & Escassez",
-                prompts: Array(10).fill().map(() => `Forneça 15 frases e mensagens poderosas de urgência, escassez e oferta relâmpago para [produto]. Inclua versões para WhatsApp, Reels, Stories e Shopee.`)
-            },
-            {
-                id: "datas",
-                icon: "🎉",
-                title: "10. Datas Especiais & Festas",
-                prompts: Array(10).fill().map(() => `Crie copies, roteiros e prompts adaptados para datas especiais (Dia das Mães, Black Friday, Natal, Dia dos Namorados, etc) vendendo [produto]. Forneça versões para Reels, WhatsApp e Shopee.`)
-            },
-            {
-                id: "ganchos",
-                icon: "🔥",
-                title: "11. Ganchos Virais + Trends",
-                prompts: Array(10).fill().map(() => `Forneça 20 ganchos virais poderosos + ideias de trends do momento adaptadas para vender [produto] em Reels e Stories. Inclua texto exato do gancho e sugestão de música.`)
-            },
-            {
-                id: "estrategia",
-                icon: "📈",
-                title: "12. Estratégia & Follow-up",
-                prompts: Array(10).fill().map(() => `Monte um plano completo de 7-14 dias de vendas para [produto]. Inclua sequência de posts, follow-up WhatsApp, estratégia de stories, ganchos diários e plano de escalada.`)
-            }
+            { id: "influencer", icon: "🎥", title: "1. Vídeos com Influencer por Nicho", prompts: Array(10).fill().map(() => "Você é roteirista profissional. Crie roteiro completo de 15-20s com influencer usando [produto]. Defina cenário, iluminação, sequência segundo a segundo (gancho 0-3s, demonstração, close, CTA), tom de voz, música e 6 variações de gancho.") },
+            { id: "reels", icon: "📱", title: "2. Instagram Reels & Stories", prompts: Array(10).fill().map(() => "Especialista em viral Instagram. Crie roteiro Reels 15s + sequência de 8 Stories para [produto]. Inclua 10 ganchos, texto na tela, música, transições e CTA.") },
+            { id: "whatsapp", icon: "💬", title: "3. WhatsApp & Grupos", prompts: Array(10).fill().map(() => "Crie 8 mensagens + follow-ups + respostas de objeções + script de áudio para vender [produto] em grupos de WhatsApp. Tom natural de amiga.") },
+            { id: "ia", icon: "🤖", title: "4. Vídeos IA Curtos (Grok/Kling)", prompts: Array(10).fill().map(() => "Expert em IA de vídeo. Crie prompt detalhado para Kling/Grok gerar vídeo vertical 9:16 de 8-10s do [produto]. 5 variações (girando, unboxing, transformação, etc).") },
+            { id: "carrossel", icon: "🖼️", title: "5. Carrossel & Imagens", prompts: Array(10).fill().map(() => "Crie 10 slides completos de carrossel para [produto] com título, texto, emoji e prompt para Flux/Midjourney.") },
+            { id: "shopee", icon: "🛒", title: "6. Shopee Vídeo", prompts: Array(10).fill().map(() => "Roteiro completo Shopee Vídeo 30-60s para [produto]: gancho, demonstração, benefícios, preço, reviews e CTA.") },
+            { id: "copy", icon: "✍️", title: "7. Copies & Legendas Persuasivas", prompts: Array(10).fill().map(() => "Copywriter expert. Escreva 12 headlines + descrição longa PAS + legenda storytelling para [produto].") },
+            { id: "seo", icon: "🔍", title: "8. SEO Shopee", prompts: Array(10).fill().map(() => "Crie 10 títulos SEO + descrição longa otimizada para ranquear [produto] na Shopee.") },
+            { id: "urgencia", icon: "⏰", title: "9. Urgência, Ofertas & Escassez", prompts: Array(10).fill().map(() => "15 frases poderosas de urgência e escassez para [produto] em diferentes canais.") },
+            { id: "datas", icon: "🎉", title: "10. Datas Especiais & Festas", prompts: Array(10).fill().map(() => "Prompts e copies para Black Friday, Dia das Mães, Natal, etc com [produto].") },
+            { id: "ganchos", icon: "🔥", title: "11. Ganchos Virais + Trends", prompts: Array(10).fill().map(() => "20 ganchos virais + ideias de trends adaptadas para [produto].") },
+            { id: "estrategia", icon: "📈", title: "12. Estratégia & Follow-up", prompts: Array(10).fill().map(() => "Plano completo de 7-14 dias de vendas + sequência de follow-up para [produto].") }
         ];
 
         function renderMenu() {
             const menu = document.getElementById('menu');
             categories.forEach(cat => {
                 const btn = document.createElement('button');
-                btn.className = `category-btn w-full text-left p-6 bg-white rounded-3xl shadow flex items-center gap-4 hover:shadow-2xl text-left`;
-                btn.innerHTML = `<span class="text-5xl flex-shrink-0">${cat.icon}</span><span class="font-semibold">${cat.title}</span>`;
+                btn.className = `category-btn w-full text-left p-6 bg-white rounded-3xl shadow flex items-center gap-4 hover:shadow-2xl`;
+                btn.innerHTML = `<span class="text-5xl">${cat.icon}</span><span class="font-semibold">${cat.title}</span>`;
                 btn.onclick = () => {
                     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -122,22 +57,19 @@
 
         function showCategory(cat) {
             const content = document.getElementById('content');
-            let html = `<h2 class="text-4xl font-bold text-center mb-12 flex items-center justify-center gap-5">${cat.icon} ${cat.title}</h2>`;
-            html += `<div class="grid md:grid-cols-2 gap-8">`;
-
+            let html = `<h2 class="text-4xl font-bold text-center mb-12">${cat.icon} ${cat.title}</h2><div class="grid md:grid-cols-2 gap-8">`;
             cat.prompts.forEach((prompt, i) => {
                 const id = `${cat.id}_${i}`;
                 html += `
-                    <div class="prompt-card bg-white p-8 rounded-3xl shadow border border-gray-100">
-                        <textarea id="${id}" class="w-full h-80 p-6 border border-gray-200 rounded-2xl">${prompt}</textarea>
-                        <button onclick="copyPrompt('${id}')" class="mt-6 w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-5 rounded-2xl font-medium flex items-center justify-center gap-3 text-lg">
-                            <i class="fa-solid fa-copy"></i> Copiar Prompt Completo
+                    <div class="prompt-card bg-white p-8 rounded-3xl shadow">
+                        <textarea id="${id}" class="w-full h-72 p-6 border rounded-2xl">${prompt}</textarea>
+                        <button onclick="copyPrompt('${id}')" class="mt-6 w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-5 rounded-2xl font-medium flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-copy"></i> Copiar Prompt
                         </button>
                     </div>`;
             });
             html += `</div>`;
             content.innerHTML = html;
-            window.scrollTo({ top: 350, behavior: 'smooth' });
         }
 
         window.copyPrompt = function(id) {
@@ -145,17 +77,13 @@
             ta.select();
             document.execCommand('copy');
             const btn = event.currentTarget;
-            const original = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> Copiado com sucesso!`;
-            setTimeout(() => btn.innerHTML = original, 2500);
+            const orig = btn.innerHTML;
+            btn.innerHTML = '✅ Copiado!';
+            setTimeout(() => btn.innerHTML = orig, 2000);
         };
 
-        // Inicializar
         renderMenu();
-        setTimeout(() => {
-            document.querySelector('.category-btn').classList.add('active');
-            showCategory(categories[0]);
-        }, 300);
+        setTimeout(() => showCategory(categories[0]), 400);
     </script>
 </body>
 </html>
