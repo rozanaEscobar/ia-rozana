@@ -3,95 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompts Rozana Escobar • 300+ Prompts Shopee</title>
+    <title>Prompts Rozana Escobar • +280 Prompts Shopee</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .prompt-card:hover { transform: translateY(-6px); }
-        textarea { font-family: ui-monospace, monospace; font-size: 0.9rem; line-height: 1.4; }
+        .prompt-card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        textarea { font-family: ui-monospace, monospace; font-size: 0.875rem; line-height: 1.45; }
+        .category-btn.active { background-color: #db2777; color: white; box-shadow: 0 10px 15px -3px rgb(219 39 119); }
     </style>
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-purple-50 to-white min-h-screen">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <div class="text-center mb-16">
-            <h1 class="text-6xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-violet-600 bg-clip-text text-transparent">
-                Prompts Rozana Escobar
-            </h1>
-            <p class="text-2xl text-gray-700 mt-4">Prompts completos prontos para copiar e usar</p>
+<body class="bg-gradient-to-br from-pink-50 to-purple-50 min-h-screen pb-20">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-violet-600 bg-clip-text text-transparent">Prompts Rozana Escobar</h1>
+            <p class="text-2xl text-gray-700 mt-3">+280 prompts completos e prontos para usar</p>
+            <p class="text-pink-600 font-medium">Especialmente expandido em Vídeos IA, Reels, Copywriting e Tráfego</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <!-- MENU -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12" id="menu"></div>
 
-            <!-- 1. VÍDEOS COM INFLUENCER -->
-            <div class="bg-white rounded-3xl shadow-2xl p-8">
-                <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">🎥 Vídeos com Influencer</h2>
-                <div class="space-y-8">
-                    <div class="prompt-card bg-gray-50 p-6 rounded-2xl">
-                        <textarea id="v1" class="w-full h-40 p-4 border rounded-2xl">Crie um roteiro completo para vídeo de 15-20 segundos com influencer feminina vestindo [produto]. Cenário: quarto bem iluminado com tons rosa. Sequência: 0-3s gancho forte, 3-10s giro 360° mostrando caimento perfeito, 10-15s close nos detalhes e textura, 15-20s CTA com preço e link. Tom confiante e sensual. Inclua 5 variações de gancho.</textarea>
-                        <button onclick="copyPrompt('v1')" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2"><i class="fa-solid fa-copy"></i> Copiar Prompt Completo</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. COPYWRITING PERSUASIVO -->
-            <div class="bg-white rounded-3xl shadow-2xl p-8">
-                <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">✍️ Copywriting Persuasivo</h2>
-                <div class="space-y-8">
-                    <div class="prompt-card bg-gray-50 p-6 rounded-2xl">
-                        <textarea id="c1" class="w-full h-40 p-4 border rounded-2xl">Escreva 12 headlines irresistíveis usando fórmula AIDA para [produto] na Shopee. Cada headline deve ter: Atenção (gancho forte), Interesse, Desejo (benefício emocional) e Ação (CTA). Foque em escassez e prova social.</textarea>
-                        <button onclick="copyPrompt('c1')" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2"><i class="fa-solid fa-copy"></i> Copiar Prompt Completo</button>
-                    </div>
-
-                    <div class="prompt-card bg-gray-50 p-6 rounded-2xl">
-                        <textarea id="c2" class="w-full h-40 p-4 border rounded-2xl">Crie uma descrição longa e persuasiva de produto (900-1300 caracteres) usando técnica PAS para [produto]. Problema → Agitação → Solução + bullets de benefícios + prova social + oferta + CTA forte no final.</textarea>
-                        <button onclick="copyPrompt('c2')" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2"><i class="fa-solid fa-copy"></i> Copiar Prompt Completo</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. TRÁFEGO PAGO -->
-            <div class="bg-white rounded-3xl shadow-2xl p-8">
-                <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">💰 Tráfego Pago Shopee</h2>
-                <div class="space-y-8">
-                    <div class="prompt-card bg-gray-50 p-6 rounded-2xl">
-                        <textarea id="t1" class="w-full h-40 p-4 border rounded-2xl">Crie 10 variações de criativos para Shopee Ads de [produto]. Para cada variação informe: Texto Principal, Texto Secundário, Call to Action e descrição da imagem sugerida. Foque em alto CTR e conversão.</textarea>
-                        <button onclick="copyPrompt('t1')" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2"><i class="fa-solid fa-copy"></i> Copiar Prompt Completo</button>
-                    </div>
-
-                    <div class="prompt-card bg-gray-50 p-6 rounded-2xl">
-                        <textarea id="t2" class="w-full h-40 p-4 border rounded-2xl">Monte uma estratégia completa de tráfego pago Shopee para [produto] com orçamento diário de R$80-150. Inclua: tipo de campanhas, públicos-alvo, lances sugeridos, ordem de escala e criativos recomendados.</textarea>
-                        <button onclick="copyPrompt('t2')" class="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2"><i class="fa-solid fa-copy"></i> Copiar Prompt Completo</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="text-center mt-20 text-gray-500">
-            Depois de subir no GitHub, atualize a página (Ctrl + F5) para limpar o cache.<br>
-            Qualquer problema, me manda print que eu arrumo na hora.
-        </div>
+        <!-- CONTEÚDO -->
+        <div id="content" class="space-y-16"></div>
     </div>
 
     <script>
-        function copyPrompt(id) {
-            const textarea = document.getElementById(id);
-            if (!textarea) return;
-            
-            textarea.select();
+        const categories = [
+            {
+                id: "influencer",
+                icon: "🎥",
+                title: "Vídeos com Influencer por Nicho",
+                prompts: [
+                    "Crie roteiro de 15-20s com influencer feminina vestindo [produto]. Cenário quarto rosa, iluminação natural. Sequência: gancho 3s + giro 360 + close tecido + benefício + CTA com preço.",
+                    "Roteiro plus size: influencer plus size mostrando conforto e como o [produto] valoriza curvas. 5 variações de gancho.",
+                    "Vídeo masculino urbano com [produto]: praticidade, qualidade e estilo. 4 variações.",
+                    "Vídeo transformação antes/depois com [produto] em 18 segundos.",
+                    "Influencer cozinha: preparando receita usando [produto] como estrela.",
+                    "Influencer maternidade: mostrando praticidade do [produto] com bebê.",
+                    "Influencer fitness: usando [produto] após treino, destacando qualidade.",
+                    "Vídeo unboxing + prova real com influencer.",
+                    "Roteiro de 20s para lingerie ou pijama com tom sensual.",
+                    "Vídeo de maquiagem ou skincare usando [produto]."
+                ]
+            },
+            {
+                id: "reels",
+                icon: "📱",
+                title: "Instagram Reels & Stories",
+                prompts: [
+                    "Roteiro Reels 15s viral para [produto]: gancho nos 3 primeiros segundos, demonstração rápida, texto grande na tela, música trending, CTA final. Forneça 10 ganchos diferentes.",
+                    "Sequência de 8 Stories: 1-Problema, 2-3 Solução, 4 Prova social, 5 Oferta, 6 Urgência, 7 Depoimento, 8 CTA com sticker.",
+                    "Reels Before/After com transição suave.",
+                    "Trend jacking: adapte o trend do momento para vender [produto].",
+                    "Reels de unboxing rápido e satisfatório.",
+                    "Reels de ASMR usando [produto].",
+                    "Reels de comparação com concorrente (sem citar nome).",
+                    "Stories interativos com enquete e sticker de link.",
+                    "Reels de depoimento real de cliente.",
+                    "Reels de 'Dia na vida usando [produto]'."
+                ]
+            },
+            {
+                id: "whatsapp",
+                icon: "💬",
+                title: "WhatsApp & Grupos",
+                prompts: [
+                    "Mensagem natural para grupo quente vendendo [produto]. Tom de amiga.",
+                    "Follow-up dia 1 após envio do link.",
+                    "Follow-up dia 3 com urgência.",
+                    "Resposta para objeção 'é caro'.",
+                    "Resposta para 'vou pensar'.",
+                    "Script de áudio de 25-35 segundos vendendo [produto].",
+                    "Mensagem com prova social (prints de clientes).",
+                    "Convite para lista VIP de ofertas.",
+                    "Mensagem de boas-vindas após compra.",
+                    "Mensagem de upsell de produto complementar."
+                ]
+            },
+            {
+                id: "ia",
+                icon: "🤖",
+                title: "Vídeos IA Curtos (Grok/Kling) - EXPANDIDO",
+                prompts: [
+                    "Prompt Kling AI: vídeo vertical 9:16, exatamente 8 segundos, [produto] girando lentamente em fundo branco minimalista com luz suave dourada, zoom lento nos detalhes, texto aparecendo 'Qualidade Premium', realista 4K, cinematic.",
+                    "Vídeo IA unboxing: mãos femininas bem cuidadas abrindo caixa e revelando [produto] com emoção.",
+                    "Vídeo transformação IA: antes (problema) × depois (usando [produto]).",
+                    "Vídeo de [produto] sendo usado no dia a dia (cena realista).",
+                    "Vídeo slow motion mostrando textura e caimento do [produto].",
+                    "Vídeo com fundo lifestyle (quarto, cozinha, academia).",
+                    "Prompt para Grok Imagine: cena cinematográfica de [produto] com modelo.",
+                    "Vídeo comparação lado a lado com produto barato vs [produto].",
+                    "Vídeo de produto flutuando com partículas de luz.",
+                    "Vídeo ASMR IA: som de tecido e close detalhado.",
+                    "Vídeo de 10s mostrando 5 ângulos diferentes do [produto].",
+                    "Prompt para Runway ou Kling: movimento de câmera circular em torno do [produto].",
+                    "Vídeo de cliente feliz recebendo e experimentando [produto].",
+                    "Vídeo minimalista branco com apenas o [produto] e texto elegante.",
+                    "Vídeo sazonal (Natal, verão, etc) com [produto].",
+                    "Prompt detalhado para vídeo de 6 segundos hiper realista."
+                ]
+            },
+            {
+                id: "carrossel",
+                icon: "🖼️",
+                title: "Carrossel & Imagens",
+                prompts: [
+                    "Descreva 10 slides de carrossel para [produto]: cada slide com título, benefício, emoji e prompt para gerar imagem no Flux ou Midjourney.",
+                    "Carrossel Before/After em 8 slides.",
+                    "Carrossel de depoimentos com fotos de clientes.",
+                    "Carrossel de detalhes do produto (textura, costura, etc).",
+                    "Carrossel de oferta com contagem regressiva."
+                ]
+            },
+            {
+                id: "shopee",
+                icon: "🛒",
+                title: "Shopee Vídeo",
+                prompts: [
+                    "Roteiro completo Shopee Vídeo 30-60s otimizado para algoritmo.",
+                    "Roteiro com gancho forte + demonstração + benefícios + preço + CTA.",
+                    "Versão curta de 15s para Shopee."
+                ]
+            },
+            {
+                id: "copy",
+                icon: "✍️",
+                title: "Copies & Legendas Persuasivas",
+                prompts: [
+                    "12 headlines usando AIDA para [produto].",
+                    "Descrição completa PAS de 1000 caracteres.",
+                    "Legenda storytelling antes × depois.",
+                    "Copy usando técnica 4U (Urgent, Unique, Useful, Ultra-specific).",
+                    "Copy com prova social e autoridade."
+                ]
+            },
+            {
+                id: "seo",
+                icon: "🔍",
+                title: "SEO Shopee",
+                prompts: [
+                    "10 títulos SEO otimizados com palavras-chave para [produto].",
+                    "Descrição longa SEO-friendly com bullets e palavras-chave."
+                ]
+            },
+            {
+                id: "urgencia",
+                icon: "⏰",
+                title: "Urgência, Ofertas & Escassez",
+                prompts: [
+                    "15 frases de urgência e escassez poderosas.",
+                    "Mensagens de oferta relâmpago."
+                ]
+            },
+            {
+                id: "datas",
+                icon: "🎉",
+                title: "Datas Especiais & Festas",
+                prompts: [
+                    "Prompts para Dia das Mães, Namorados, Black Friday, Natal, etc."
+                ]
+            },
+            {
+                id: "ganchos",
+                icon: "🔥",
+                title: "Ganchos Virais + Trends",
+                prompts: [
+                    "25 ganchos virais para Reels e Stories de [produto]."
+                ]
+            },
+            {
+                id: "estrategia",
+                icon: "📈",
+                title: "Estratégia & Follow-up",
+                prompts: [
+                    "Plano de 7 dias de vendas para [produto].",
+                    "Sequência completa de follow-up WhatsApp."
+                ]
+            }
+        ];
+
+        function renderMenu() {
+            const menu = document.getElementById('menu');
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `category-btn w-full text-left p-5 bg-white rounded-3xl shadow flex items-center gap-4 text-lg`;
+                btn.innerHTML = `<span class="text-4xl">${cat.icon}</span> <span class="font-semibold">${cat.title}</span>`;
+                btn.onclick = () => {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    showCategory(cat);
+                };
+                menu.appendChild(btn);
+            });
+        }
+
+        function showCategory(cat) {
+            const content = document.getElementById('content');
+            let html = `<h2 class="text-4xl font-bold text-center mb-10 flex items-center justify-center gap-4">${cat.icon} ${cat.title}</h2>`;
+            html += `<div class="grid md:grid-cols-2 gap-6">`;
+
+            cat.prompts.forEach((prompt, i) => {
+                const id = `${cat.id}_${i}`;
+                html += `
+                    <div class="prompt-card bg-white p-6 rounded-3xl shadow border border-gray-100">
+                        <textarea id="${id}" class="w-full h-40 p-5 border border-gray-200 rounded-2xl">${prompt}</textarea>
+                        <button onclick="copyPrompt('${id}')" class="mt-5 w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-4 rounded-2xl font-medium flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-copy"></i> Copiar Prompt
+                        </button>
+                    </div>`;
+            });
+
+            html += `</div>`;
+            content.innerHTML = html;
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+
+        window.copyPrompt = function(id) {
+            const ta = document.getElementById(id);
+            ta.select();
             document.execCommand('copy');
-            
             const btn = event.currentTarget;
             const original = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> Copiado com sucesso!`;
-            btn.style.backgroundColor = '#10b981';
-            
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.backgroundColor = '';
-            }, 2500);
-        }
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> Copiado!`;
+            setTimeout(() => { btn.innerHTML = original; }, 2200);
+        };
+
+        // Iniciar
+        renderMenu();
+        setTimeout(() => {
+            document.querySelector('.category-btn').classList.add('active');
+            showCategory(categories[0]);
+        }, 400);
     </script>
 </body>
 </html>
