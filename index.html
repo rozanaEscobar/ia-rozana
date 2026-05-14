@@ -89,6 +89,24 @@
     color: #fff;
   }
 
+  /* BOTÃO DESTAQUE */
+  .header-links a.btn-apps {
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    border-color: transparent;
+    color: #fff;
+    font-size: 0.82rem;
+    padding: 6px 18px;
+    box-shadow: 0 4px 14px rgba(147,51,234,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .header-links a.btn-apps:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147,51,234,0.5);
+    background: linear-gradient(135deg, #6d28d9, #a21caf);
+    color: #fff;
+  }
+
   /* INSTRUÇÃO */
   .instrucao {
     text-align: center;
@@ -101,7 +119,6 @@
 
   .instrucao strong { color: #c026d3; }
 
-  /* NAV TABS — grid centralizado, 2 linhas */
   .tabs-wrapper {
     background: rgba(255,240,247,0.9);
     border-bottom: 1px solid var(--border);
@@ -144,14 +161,12 @@
     box-shadow: 0 4px 14px rgba(147,51,234,0.3);
   }
 
-  /* MAIN */
   main {
     max-width: 960px;
     margin: 0 auto;
     padding: 28px 16px 60px;
   }
 
-  /* TAB PANEL */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
@@ -186,10 +201,7 @@
     vertical-align: middle;
   }
 
-  /* SUBGRUPO */
-  .subgroup {
-    margin-bottom: 36px;
-  }
+  .subgroup { margin-bottom: 36px; }
 
   .subgroup-title {
     font-family: 'Outfit', sans-serif;
@@ -201,7 +213,6 @@
     border-left: 3px solid #9333ea;
   }
 
-  /* GRID DE CARDS — 2 colunas fixas */
   .prompts-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -212,7 +223,6 @@
     .prompts-grid { grid-template-columns: 1fr; }
   }
 
-  /* CARD */
   .prompt-card {
     background: #ffffff;
     border: 1px solid rgba(147,51,234,0.15);
@@ -299,7 +309,6 @@
     color: var(--green);
   }
 
-  /* TOAST */
   #toast {
     position: fixed;
     bottom: 24px;
@@ -319,7 +328,6 @@
 
   #toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 24px;
@@ -343,6 +351,7 @@
   <h1>Prompts Rozana Escobar</h1>
   <p>Prompts prontos para afiliados Shopee — copie e use direto na ferramenta de IA</p>
   <div class="header-links">
+    <a class="btn-apps" href="https://www.rozanaescobar.com.br" target="_blank">🛍️ Meus Apps e Serviços</a>
     <a href="https://wa.me/" target="_blank">WhatsApp</a>
     <a href="https://www.instagram.com/guiarapidoshopeeafiliado" target="_blank">Instagram</a>
   </div>
@@ -376,7 +385,6 @@
     <h2>💬 WhatsApp <span class="count">100 prompts</span></h2>
     <p>Mensagens para grupos, listas de transmissão e conversas individuais</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📢 Mensagens para Grupos</div>
     <div class="prompts-grid">
@@ -402,7 +410,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Encerramento de lote</span><span class="tag">escassez</span></div><p class="prompt-text">Crie mensagem para grupo avisando que [produto] está encerrando o lote atual na Shopee. Tom de aviso de amigo, urgência suave e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">👤 Mensagens Individuais</div>
     <div class="prompts-grid">
@@ -418,7 +425,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Resposta a objeção desconfiança</span><span class="tag">objeção</span></div><p class="prompt-text">Crie uma resposta para quando alguém diz que tem medo de comprar online. Use argumentos de segurança Shopee, avaliações e garantia. Tom tranquilizador.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📋 Lista de Transmissão</div>
     <div class="prompts-grid">
@@ -429,7 +435,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Mensagem de reengajamento</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie uma mensagem para reengajar contatos inativos da lista de transmissão. Apresente [produto] como surpresa e relembre o valor do canal de ofertas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🏷️ Mensagens por Nicho de Produto</div>
     <div class="prompts-grid">
@@ -459,7 +464,6 @@
     <h2>📸 Instagram Stories & Reels <span class="count">100 prompts</span></h2>
     <p>Roteiros, legendas e ganchos para Stories sequenciais e Reels</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📱 Stories Sequenciais (3 slides)</div>
     <div class="prompts-grid">
@@ -485,7 +489,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Story automovel</span><span class="tag">auto</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [acessório automotivo]. Story 1: situação comum no carro. Story 2: produto resolve. Story 3: preço + link bio. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🎬 Reels — Roteiros e Ganchos</div>
     <div class="prompts-grid">
@@ -511,7 +514,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Reels saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie roteiro de Reels sobre [produto de saúde] com abordagem informativa e persuasiva. Começa com dado/dica de saúde, apresenta o produto e CTA responsável.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">✍️ Legendas para Posts de Feed</div>
     <div class="prompts-grid">
@@ -530,7 +532,6 @@
     <h2>🤖 Vídeos de IA <span class="count">100 prompts</span></h2>
     <p>Prompts para Grok, Kling, Pika, RunwayML e outros geradores de vídeo IA</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">👗 Moda e Acessórios</div>
     <div class="prompts-grid">
@@ -541,7 +542,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Bijuteria — reflexo de luz</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [bijuteria/colar/brinco] em fundo preto, com raios de luz refletindo nas pedras ou metal. Câmera estática, giro suave do objeto. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">💄 Beleza e Skincare</div>
     <div class="prompts-grid">
@@ -552,7 +552,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Creme / hidratante</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [creme/hidratante] com textura cremosa sendo espalhada em slow motion. Fundo pastel. Luz suave de estúdio. Sem texto. Sensorial e elegante.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🏠 Casa e Cozinha</div>
     <div class="prompts-grid">
@@ -563,7 +562,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Decoração — ambiente</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos mostrando [produto de decoração] em sala bem iluminada. Câmera faz slow reveal do ambiente. Luz natural pela janela. Estilo home decor editorial.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📱 Tecnologia e Eletrônicos</div>
     <div class="prompts-grid">
@@ -574,7 +572,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Carregador / cabo</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [carregador/cabo] sendo conectado a um celular. Ícone de carga aparece na tela. Fundo clean branco. Câmera macro. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🐾 Pets, Esporte e Outros</div>
     <div class="prompts-grid">
@@ -598,7 +595,6 @@
     <h2>🖼️ Carrossel <span class="count">100 prompts</span></h2>
     <p>Roteiros completos de carrossel para Instagram, TikTok e Telegram</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🛍️ Carrossel por Nicho de Produto</div>
     <div class="prompts-grid">
@@ -614,7 +610,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel moda masculina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [peça masculina]. Slide 1: estilo urbano. Slides 2-3: looks com o produto. Slide 4: material e qualidade. Slide 5: preço + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📐 Formatos Estratégicos de Carrossel</div>
     <div class="prompts-grid">
@@ -630,7 +625,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Transformação do ambiente</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel de transformação de ambiente com [produto de casa/decoração]. Slide 1: antes. Slides 2-4: processo e produto. Slide 5: depois. Slide 6: CTA "você também pode".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📝 Textos de Capa e Slides</div>
     <div class="prompts-grid">
@@ -649,7 +643,6 @@
     <h2>🛒 Shopee Vídeo <span class="count">100 prompts</span></h2>
     <p>Roteiros, ganchos e scripts completos para vídeos dentro da plataforma Shopee</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🎬 Roteiros Completos por Nicho</div>
     <div class="prompts-grid">
@@ -665,7 +658,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro automóvel</span><span class="tag">auto</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 20s para [acessório automotivo]. Cena dentro do carro ou garagem, produto instalado, resultado visual e CTA. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">⚡ Ganchos e Aberturas de Vídeo</div>
     <div class="prompts-grid">
@@ -677,7 +669,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Gancho para pet</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos emotivos para Shopee Vídeo de [produto pet]. Foco no amor ao animal. Cada gancho máximo 5 palavras que parem o scroll instantaneamente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🗣️ Narração, Texto na Tela e CTA</div>
     <div class="prompts-grid">
@@ -696,7 +687,6 @@
     <h2>✈️ Telegram <span class="count">80 prompts</span></h2>
     <p>Mensagens para canais, grupos e listas de afiliados no Telegram</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">📣 Canal de Ofertas</div>
     <div class="prompts-grid">
@@ -712,7 +702,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Post encerramento</span><span class="tag">urgência</span></div><p class="prompt-text">Crie post avisando que [produto] vai sair de promoção em breve no canal Telegram. Tom de aviso final, benefício e link com "última chance".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">💬 Grupos e Mensagens Interativas</div>
     <div class="prompts-grid">
@@ -736,7 +725,6 @@
     <h2>🏷️ Vídeos com Influencer por Nicho <span class="count">24 nichos</span></h2>
     <p>Prompts de vídeo com influencer para cada nicho da Shopee</p>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">👗 Moda</div>
     <div class="prompts-grid">
@@ -750,7 +738,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Relógios</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer usando [modelo do relógio] no pulso. Cenário: mesa de madeira ou fundo elegante. Close no pulso, depois no rosto sorrindo. Luz natural. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">💻 Tech</div>
     <div class="prompts-grid">
@@ -760,7 +747,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Áudio</span><span class="tag">tech</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer usando [fone/caixa de som/produto de áudio]. Cenário: quarto moderno ou setup. Ela coloca o fone, fecha os olhos curtindo. Close no produto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🏠 Casa</div>
     <div class="prompts-grid">
@@ -770,7 +756,6 @@
       <div class="prompt-card"><div class="card-header"><span class="card-title">Organização e Decoração</span><span class="tag">casa</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer organizando ou decorando um cômodo com [nome do produto]. Cenário: antes e depois do espaço. Ela mostra a transformação do ambiente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
     </div>
   </div>
-
   <div class="subgroup">
     <div class="subgroup-title">🚗 Auto • 💄 Beleza • 🏋️ Esporte • 👨‍👩‍👧 Família • 🐾 Pets • 📚 Educação • ❤️ Saúde</div>
     <div class="prompts-grid">
@@ -904,13 +889,12 @@
 </main>
 
 <footer>
-  Prompts Rozana Escobar © 2025 — <a href="https://wa.me/" target="_blank">WhatsApp</a> | <a href="https://www.instagram.com/guiarapidoshopeeafiliado" target="_blank">Instagram</a>
+  Prompts Rozana Escobar © 2025 — <a href="https://www.rozanaescobar.com.br" target="_blank">rozanaescobar.com.br</a> | <a href="https://wa.me/" target="_blank">WhatsApp</a> | <a href="https://www.instagram.com/guiarapidoshopeeafiliado" target="_blank">Instagram</a>
 </footer>
 
 <div id="toast">✓ Prompt copiado!</div>
 
 <script>
-  // NAVEGAÇÃO POR ABAS
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -925,7 +909,6 @@
     });
   });
 
-  // COPIAR PROMPT
   function copiarPrompt(btn) {
     const card = btn.closest('.prompt-card');
     const texto = card.querySelector('.prompt-text').innerText;
@@ -940,7 +923,6 @@
         toast.classList.remove('show');
       }, 2000);
     }).catch(() => {
-      // fallback para navegadores sem clipboard API
       const el = document.createElement('textarea');
       el.value = texto;
       document.body.appendChild(el);
