@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Prompts prontos para afiliados Shopee — copie e use direto na ferramenta de IA.">
+<title>Prompts Rozana Escobar</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf2f8;
+    --surface: #fff0f7;
+    --card: #ffffff;
+    --border: #e9c6e0;
+    --accent: #9333ea;
+    --accent2: #c026d3;
+    --accent-soft: #7c3aed;
+    --text: #3b1a5a;
+    --muted: #9066a8;
+    --green: #059669;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 10% 0%, rgba(216,180,254,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(249,168,212,0.25) 0%, transparent 55%);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: rgba(255,240,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 24px 18px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    background: linear-gradient(90deg, #9333ea, #c026d3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.3px;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 0.84rem;
+    margin-top: 4px;
+  }
+
+  .header-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .header-links a {
+    color: #9333ea;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(147,51,234,0.35);
+    padding: 4px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    background: rgba(147,51,234,0.06);
+  }
+
+  .header-links a:hover {
+    background: #9333ea;
+    border-color: #9333ea;
+    color: #fff;
+  }
+
+  /* BOTÃO DESTAQUE */
+  .header-links a.btn-apps {
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    border-color: transparent;
+    color: #fff;
+    font-size: 0.82rem;
+    padding: 6px 18px;
+    box-shadow: 0 4px 14px rgba(147,51,234,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .header-links a.btn-apps:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147,51,234,0.5);
+    background: linear-gradient(135deg, #6d28d9, #a21caf);
+    color: #fff;
+  }
+
+  /* INSTRUÇÃO */
+  .instrucao {
+    text-align: center;
+    padding: 10px 20px;
+    background: rgba(147,51,234,0.05);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.81rem;
+    color: var(--muted);
+  }
+
+  .instrucao strong { color: #c026d3; }
+
+  .tabs-wrapper {
+    background: rgba(255,240,247,0.9);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .tab-btn {
+    background: rgba(147,51,234,0.06);
+    border: 1px solid rgba(147,51,234,0.25);
+    color: #7c3aed;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tab-btn:hover {
+    border-color: #9333ea;
+    color: #9333ea;
+    background: rgba(147,51,234,0.12);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(147,51,234,0.3);
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .panel-header {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .panel-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #3b1a5a;
+  }
+
+  .panel-header p {
+    color: var(--muted);
+    font-size: 0.84rem;
+    margin-top: 5px;
+  }
+
+  .panel-header .count {
+    display: inline-block;
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 11px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  .subgroup { margin-bottom: 36px; }
+
+  .subgroup-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #c026d3;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 3px solid #9333ea;
+  }
+
+  .prompts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .prompts-grid { grid-template-columns: 1fr; }
+  }
+
+  .prompt-card {
+    background: #ffffff;
+    border: 1px solid rgba(147,51,234,0.15);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    animation: fadeIn 0.3s ease both;
+    box-shadow: 0 2px 8px rgba(147,51,234,0.06);
+  }
+
+  .prompt-card:hover {
+    border-color: rgba(147,51,234,0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(147,51,234,0.12);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #4c1d8f;
+    line-height: 1.3;
+  }
+
+  .tag {
+    background: rgba(147,51,234,0.08);
+    color: #9333ea;
+    font-size: 0.67rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: 1px solid rgba(147,51,234,0.18);
+  }
+
+  .prompt-text {
+    font-size: 0.82rem;
+    color: #5e3a80;
+    line-height: 1.58;
+    flex: 1;
+  }
+
+  .copy-btn {
+    background: rgba(147,51,234,0.07);
+    border: 1px solid rgba(147,51,234,0.3);
+    color: #7c3aed;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: 100%;
+    margin-top: auto;
+    letter-spacing: 0.2px;
+  }
+
+  .copy-btn:hover {
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(147,51,234,0.25);
+  }
+
+  .copy-btn.copied {
+    background: rgba(5,150,105,0.08);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  #toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(60px);
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(147,51,234,0.35);
+  }
+
+  #toast.show { transform: translateX(-50%) translateY(0); }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    background: rgba(255,240,247,0.7);
+  }
+
+  footer a { color: #9333ea; text-decoration: none; font-weight: 600; }
+  footer a:hover { color: #c026d3; }
+
+  @media (max-width: 480px) {
+    .prompts-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Prompts Rozana Escobar</h1>
+  <p>Prompts prontos para afiliados Shopee — copie e use direto na ferramenta de IA</p>
+  <div class="header-links">
+    <a class="btn-apps" href="https://www.rozanaescobar.com.br" target="_blank">🛍️ Meus Apps e Serviços</a>
+    <a href="https://wa.me/" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/guiarapidoshopeeafiliado" target="_blank">Instagram</a>
+  </div>
+</header>
+
+<div class="instrucao">
+  <strong>Como usar:</strong> Clique em "Copiar prompt", substitua os termos entre [ ] pelo seu produto e cole no ChatGPT, Grok ou outra IA.
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="whatsapp">💬 WhatsApp</button>
+    <button class="tab-btn" data-tab="instagram">📸 Instagram Stories & Reels</button>
+    <button class="tab-btn" data-tab="videoai">🤖 Vídeos de IA</button>
+    <button class="tab-btn" data-tab="carrossel">🖼️ Carrossel</button>
+    <button class="tab-btn" data-tab="shopee">🛒 Shopee Vídeo</button>
+    <button class="tab-btn" data-tab="telegram">✈️ Telegram</button>
+    <button class="tab-btn" data-tab="nichos">🏷️ Vídeos por Nicho</button>
+    <button class="tab-btn" data-tab="copy">✍️ Copy & Legendas</button>
+    <button class="tab-btn" data-tab="seo">🔍 SEO & Títulos</button>
+    <button class="tab-btn" data-tab="frases">💥 Frases de Impacto</button>
+    <button class="tab-btn" data-tab="datas">🎉 Datas Especiais</button>
+  </div>
+</div>
+
+<main>
+
+<!-- ==================== WHATSAPP ==================== -->
+<div class="tab-panel active" id="tab-whatsapp">
+  <div class="panel-header">
+    <h2>💬 WhatsApp <span class="count">100 prompts</span></h2>
+    <p>Mensagens para grupos, listas de transmissão e conversas individuais</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📢 Mensagens para Grupos</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Oferta do dia</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem curta para grupo de WhatsApp divulgando [produto] com preço, benefício principal e link da Shopee. Tom animado, com emoji e até 5 linhas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto do dia</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem de "produto do dia" para grupo de WhatsApp sobre [produto]. Destaque o desconto, 2 benefícios e CTA com link. Tom de amigo indicando.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Gancho de curiosidade</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem de gancho para grupo sobre [produto] que começa com uma pergunta curiosa, explica o benefício e termina com link. Sem parecer propaganda.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Relâmpago 2h</span><span class="tag">urgência</span></div><p class="prompt-text">Crie uma mensagem urgente para grupo de WhatsApp: promoção relâmpago de [produto] por 2 horas. Use emojis de relógio, destaque o preço e termine com link e "corre!".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Últimas unidades</span><span class="tag">escassez</span></div><p class="prompt-text">Crie mensagem de escassez para grupo: [produto] com poucas unidades restantes na Shopee. Crie urgência realista, mostre o benefício e coloque o link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Comparação de preço</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem para grupo comparando o preço de [produto] na Shopee com o preço comum em outras lojas. Tom de "achei esse baratão", com link no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Avaliações reais</span><span class="tag">prova social</span></div><p class="prompt-text">Crie uma mensagem para grupo de WhatsApp usando o argumento de avaliações positivas para vender [produto]. Mencione nota alta, muitos compradores e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frete grátis</span><span class="tag">benefício</span></div><p class="prompt-text">Crie uma mensagem curta para grupo destacando que [produto] está com frete grátis na Shopee. Tom animado, emoji de caminhão, benefício rápido e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dica de presente</span><span class="tag">presente</span></div><p class="prompt-text">Crie uma mensagem para grupo sugerindo [produto] como ideia de presente. Tom de dica amiga, com benefício emocional e link no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Novidade da semana</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem de "novidade da semana" para grupo apresentando [produto] como descoberta nova na Shopee. Tom de quem acabou de encontrar algo incrível.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Lista de benefícios</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem em formato de lista para grupo com 5 motivos para comprar [produto] na Shopee. Cada item em uma linha com emoji. CTA no final com link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mensagem de segunda</span><span class="tag">rotina</span></div><p class="prompt-text">Crie uma mensagem de segunda-feira para grupo de compras sobre [produto]. Tom motivacional de início de semana com oferta especial e link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mensagem de sexta</span><span class="tag">rotina</span></div><p class="prompt-text">Crie uma mensagem descontraída de sexta-feira para grupo com [produto] como recompensa do fim de semana. Tom leve, emoji de sextou e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Recomendação pessoal</span><span class="tag">confiança</span></div><p class="prompt-text">Crie uma mensagem para grupo escrita como se fosse uma recomendação pessoal de quem já usou [produto]. Tom genuíno, sem parecer vendedor.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Combo / kit</span><span class="tag">grupo</span></div><p class="prompt-text">Crie uma mensagem para grupo sobre [produto] vendido em kit ou combo na Shopee. Destaque o custo-benefício, quantidade e link. Tom de "vale muito a pena".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Pergunta que engaja</span><span class="tag">engajamento</span></div><p class="prompt-text">Crie uma mensagem para grupo que começa com uma pergunta sobre o problema que [produto] resolve, depois apresenta o produto como solução com link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Aproveite hoje</span><span class="tag">urgência</span></div><p class="prompt-text">Crie mensagem para grupo com tom de "só hoje" para [produto]. Destaque que o preço pode subir, 2 benefícios e link. Sem mentir sobre prazo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto trending</span><span class="tag">grupo</span></div><p class="prompt-text">Crie mensagem dizendo que [produto] está bombando nas redes e nas vendas da Shopee. Use argumento de "todo mundo está comprando" e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Comparação antes/depois</span><span class="tag">transformação</span></div><p class="prompt-text">Crie mensagem para grupo descrevendo a transformação de quem usou [produto]. Antes: problema. Depois: resultado. Tom realista e link no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Encerramento de lote</span><span class="tag">escassez</span></div><p class="prompt-text">Crie mensagem para grupo avisando que [produto] está encerrando o lote atual na Shopee. Tom de aviso de amigo, urgência suave e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">👤 Mensagens Individuais</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Indicação natural</span><span class="tag">individual</span></div><p class="prompt-text">Crie uma mensagem individual amigável para indicar [produto] a uma pessoa, como se você estivesse lembrando dela e achando que vai gostar. Sem parecer venda.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Resposta a interesse</span><span class="tag">individual</span></div><p class="prompt-text">Crie uma mensagem para enviar a alguém que demonstrou interesse em [produto], com mais detalhes, benefício, preço e link da Shopee. Tom prestativo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Follow-up suave</span><span class="tag">individual</span></div><p class="prompt-text">Crie um follow-up gentil para alguém que viu mas não comprou [produto]. Sem pressão, reforce um benefício novo e ofereça o link novamente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Indicação para mãe</span><span class="tag">nicho</span></div><p class="prompt-text">Crie uma mensagem carinhosa indicando [produto] para uma mãe que pode se beneficiar. Tom de cuidado, benefício prático para o dia a dia e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Indicação para amiga</span><span class="tag">nicho</span></div><p class="prompt-text">Crie uma mensagem informal de amiga para amiga indicando [produto de beleza/moda]. Tom de segredo de amiga, com entusiasmo e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Indicação para quem malha</span><span class="tag">nicho</span></div><p class="prompt-text">Crie uma mensagem para indicar [produto esportivo] a alguém que se exercita. Tom de praticante para praticante, com benefício de performance e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dica de custo-benefício</span><span class="tag">individual</span></div><p class="prompt-text">Crie mensagem individual sobre [produto] destacando que é acessível e entrega muito valor. Tom de quem adora uma boa compra, sem exagero.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Aviso de promoção</span><span class="tag">individual</span></div><p class="prompt-text">Crie uma mensagem individual avisando uma pessoa especificamente que [produto] que ela pode querer está em promoção agora. Tom de aviso rápido.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Resposta a objeção preço</span><span class="tag">objeção</span></div><p class="prompt-text">Crie uma resposta para quando alguém diz que [produto] está caro. Argumente com custo-benefício, durabilidade e compare com soluções mais caras. Tom amigável.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Resposta a objeção desconfiança</span><span class="tag">objeção</span></div><p class="prompt-text">Crie uma resposta para quando alguém diz que tem medo de comprar online. Use argumentos de segurança Shopee, avaliações e garantia. Tom tranquilizador.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📋 Lista de Transmissão</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Abertura de lista</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie uma mensagem de boas-vindas para nova lista de transmissão de ofertas Shopee. Explica o que a pessoa vai receber e como aproveitar. Tom acolhedor.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Oferta exclusiva lista</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie mensagem para lista de transmissão com [produto] como oferta exclusiva para quem está na lista. Reforce a exclusividade e o link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Curadoria semanal</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie uma mensagem de curadoria semanal para lista de transmissão com [produto1], [produto2] e [produto3] como destaques. Tom de seleção especial.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Alerta de oferta</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie um alerta rápido para lista de transmissão: [produto] com desconto agora. Mensagem curta, direto ao ponto, com emoji de sirene e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mensagem de reengajamento</span><span class="tag">transmissão</span></div><p class="prompt-text">Crie uma mensagem para reengajar contatos inativos da lista de transmissão. Apresente [produto] como surpresa e relembre o valor do canal de ofertas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🏷️ Mensagens por Nicho de Produto</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Moda feminina</span><span class="tag">moda</span></div><p class="prompt-text">Crie uma mensagem de WhatsApp para vender [peça feminina]. Foco em estilo, caimento e preço acessível. Tom de amiga fashionista dando dica.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Beleza e skincare</span><span class="tag">beleza</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto de beleza]. Foco em resultado, ingredientes ou facilidade de uso. Tom de quem cuidou da pele e recomenda.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto de casa</span><span class="tag">casa</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto doméstico]. Foco em praticidade e organização do lar. Tom de dona de casa que descobriu algo útil.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Tech / celular</span><span class="tag">tech</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto tech]. Destaque especificações simples, compatibilidade e preço. Tom de pessoa que entende e indica.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Pet / animal</span><span class="tag">pets</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto pet]. Tom fofo e emocional, com foco no bem-estar do animal e felicidade do tutor. Link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Bebê e mamãe</span><span class="tag">família</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto de bebê ou mamãe]. Tom acolhedor de mãe para mãe, com foco em segurança, praticidade e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Esporte / fitness</span><span class="tag">esporte</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto esportivo]. Tom motivacional, com foco em resultado, qualidade e preço. Para grupos de academia ou saúde.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Escolar / papelaria</span><span class="tag">educação</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto escolar]. Tom prático para pais e estudantes, com foco em custo-benefício e link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Automóvel / moto</span><span class="tag">auto</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [acessório automotivo]. Tom de motorista para motorista, com benefício prático e link. Para grupos de carro/moto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Saúde e bem-estar</span><span class="tag">saúde</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto de saúde]. Tom de cuidado e responsabilidade, com benefício claro, sem promessas exageradas. Link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Organização e decoração</span><span class="tag">casa</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [produto de organização/decoração]. Foco na transformação do ambiente, facilidade e preço. Tom de quem organizou a casa.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Cozinha / utensílio</span><span class="tag">casa</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [utensílio de cozinha]. Tom de quem cozinha e descobriu algo que facilita tudo. Benefício prático e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roupas infantis</span><span class="tag">moda</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [roupa infantil]. Tom de mãe para mãe, com foco em qualidade, conforto e preço. Emoji de criança e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Relógio / acessório</span><span class="tag">moda</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [relógio ou acessório]. Tom de estilo e sofisticação acessível. Destaque design, qualidade e preço surpreendente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Fone / áudio</span><span class="tag">tech</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [fone de ouvido ou produto de áudio]. Foco em qualidade de som, conforto e preço. Tom casual de quem usa e aprova.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Jogo / console</span><span class="tag">tech</span></div><p class="prompt-text">Crie mensagem de WhatsApp para vender [acessório gamer/console]. Tom jovem e animado, para grupos de jogos. Destaque compatibilidade e preço.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== INSTAGRAM STORIES & REELS ==================== -->
+<div class="tab-panel" id="tab-instagram">
+  <div class="panel-header">
+    <h2>📸 Instagram Stories & Reels <span class="count">100 prompts</span></h2>
+    <p>Roteiros, legendas e ganchos para Stories sequenciais e Reels</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📱 Stories Sequenciais (3 slides)</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story moda feminina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [peça feminina]. Story 1: pergunta gancho sobre estilo. Story 2: foto do produto com 3 bullets de benefício. Story 3: "Arrasta pra cima" com urgência.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto de beleza]. Story 1: antes e depois em texto. Story 2: benefícios com emojis. Story 3: CTA com link bio e urgência.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story produto de casa</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto doméstico]. Story 1: dor do público. Story 2: produto como solução + 2 diferenciais. Story 3: preço + link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story tech</span><span class="tag">tech</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto tech]. Story 1: "você sabia que..." com dado curioso. Story 2: o produto resolvendo o problema. Story 3: oferta + link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto pet]. Story 1: frase emocional sobre amor ao pet. Story 2: produto com benefícios. Story 3: CTA fofo com link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story esporte</span><span class="tag">esporte</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto esportivo]. Story 1: motivação de treino. Story 2: produto em ação com benefício. Story 3: oferta + link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story bebê/mamãe</span><span class="tag">família</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto bebê/mamãe]. Story 1: dor real da maternidade. Story 2: produto facilitando o dia a dia. Story 3: CTA carinhoso + link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story urgência / oferta</span><span class="tag">urgência</span></div><p class="prompt-text">Crie roteiro de 3 Stories de urgência para [produto]. Story 1: alerta de promoção. Story 2: benefícios rápidos. Story 3: countdown e link bio. Tom de "não perde!"</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto de saúde]. Story 1: hábito saudável que o produto apoia. Story 2: como usar + benefícios. Story 3: CTA responsável com link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story prova social</span><span class="tag">prova social</span></div><p class="prompt-text">Crie roteiro de 3 Stories usando prova social para vender [produto]. Story 1: depoimento fictício realista. Story 2: resultado/benefício do produto. Story 3: CTA e link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story comparação</span><span class="tag">comparação</span></div><p class="prompt-text">Crie roteiro de 3 Stories comparando [produto] com alternativas caras. Story 1: problema/gasto alto. Story 2: solução com o produto + preço. Story 3: link bio + urgência.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story curiosidade</span><span class="tag">engajamento</span></div><p class="prompt-text">Crie roteiro de 3 Stories que usam curiosidade para apresentar [produto]. Story 1: "Você sabia que...". Story 2: revelação + produto. Story 3: CTA e link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story presente</span><span class="tag">presente</span></div><p class="prompt-text">Crie roteiro de 3 Stories sugerindo [produto] como presente. Story 1: ocasião e emoção. Story 2: produto + por que é perfeito. Story 3: link bio + prazo de entrega.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story cozinha</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [utensílio de cozinha]. Story 1: cena de cozinha caótica sem o produto. Story 2: com o produto tudo muda. Story 3: link bio + preço.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story moda masculina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [peça masculina]. Story 1: estilo casual/urbano. Story 2: o produto em looks. Story 3: preço + link bio. Tom descontraído.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story relógio/acessório</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [relógio/acessório]. Story 1: "o detalhe que muda o look". Story 2: produto em destaque + benefício. Story 3: link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story frete grátis</span><span class="tag">benefício</span></div><p class="prompt-text">Crie roteiro de 3 Stories destacando frete grátis de [produto]. Story 1: gancho sobre economizar. Story 2: produto + frete grátis. Story 3: "aproveita agora" + link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story infantil</span><span class="tag">família</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto infantil]. Story 1: cena de criança feliz. Story 2: produto + benefícios para criança e mãe. Story 3: link bio + preço.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story organização</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto de organização]. Story 1: ambiente bagunçado → frustração. Story 2: produto em uso + transformação. Story 3: link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story automovel</span><span class="tag">auto</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [acessório automotivo]. Story 1: situação comum no carro. Story 2: produto resolve. Story 3: preço + link bio. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🎬 Reels — Roteiros e Ganchos</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels 15s moda</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels de 15 segundos para [peça de moda]. Segundos 0-3: gancho visual e frase. 4-12: demonstração do produto. 13-15: CTA e link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels 30s beleza</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels de 30 segundos para [produto de beleza]. Inclua: gancho, problema, demonstração do produto em uso, resultado e CTA. Com indicações de cortes e texto na tela.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos virais</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos de abertura virais para Reels vendendo [produto]. Cada gancho deve prender a atenção nos primeiros 2 segundos. Mix de curiosidade, choque, pergunta e promessa.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels antes/depois</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels antes e depois para [produto]. Antes: cena do problema. Corte rápido. Depois: cena com o produto em uso e resultado. CTA final de 3 segundos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels "3 motivos"</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels "3 motivos para comprar [produto]" em 20 segundos. Cada motivo aparece em texto na tela com narração rápida. CTA no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels review rápido</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels de review em 30 segundos de [produto]. Mostra o produto, abre o pacote ou demonstra, destaca 2 pontos positivos e CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels "você precisa"</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels com o ângulo "você precisa de [produto] se..." listando 3 situações comuns. Cada situação aparece na tela. CTA no final com link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels tendência</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels posicionando [produto] como tendência. Use linguagem de "todo mundo está usando", mostre o produto e termine com CTA de "não fica de fora".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels dica rápida</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels de dica rápida usando [produto]. Apresente o produto como a dica, mostre como usar em 15 segundos e termine com CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels POV</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels em formato POV (ponto de vista) usando [produto]. Ex: "POV: você finalmente comprou [produto]..." Mostre a experiência de uso positiva.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda Reels vendedora</span><span class="tag">legenda</span></div><p class="prompt-text">Crie uma legenda completa para Reels de [produto]. Com emoji, gancho na primeira linha, 3 benefícios, CTA e hashtags estratégicas para Shopee afiliados.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">15 hashtags</span><span class="tag">hashtags</span></div><p class="prompt-text">Crie 15 hashtags estratégicas para um Reels vendendo [produto] no Instagram. Mix de hashtags grandes, médias e de nicho para máximo alcance.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie roteiro de Reels fofo para [produto pet]. Cena com o animal sendo feliz, produto em destaque, texto emocional e CTA amigável. 15-20 segundos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels esporte motivacional</span><span class="tag">esporte</span></div><p class="prompt-text">Crie roteiro de Reels motivacional com [produto esportivo]. Começa com frase de treino, mostra produto em uso, resultado e CTA enérgico. Trilha sonora sugerida.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels unboxing</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels de unboxing de [produto]. Da embalagem ao produto final, com reação positiva, detalhes do item e CTA para comprar na Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels cozinha</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de Reels de cozinha usando [utensílio]. Mostra o produto resolvendo uma tarefa comum na cozinha de forma prática e rápida. CTA no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels "achado da Shopee"</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels no estilo "achado da Shopee" para [produto]. Tom de descoberta, surpresa com o preço e qualidade. CTA com link bio.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels comparação preço</span><span class="tag">reels</span></div><p class="prompt-text">Crie roteiro de Reels comparando o preço de [produto] em lojas físicas vs Shopee. Tom de "não acredito no preço" e CTA imediato.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels automovel</span><span class="tag">auto</span></div><p class="prompt-text">Crie roteiro de Reels para [acessório de carro/moto]. Mostra o problema sem o produto, a instalação fácil e o resultado. Tom prático. 20 segundos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Reels saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie roteiro de Reels sobre [produto de saúde] com abordagem informativa e persuasiva. Começa com dado/dica de saúde, apresenta o produto e CTA responsável.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">✍️ Legendas para Posts de Feed</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda emocional</span><span class="tag">legenda</span></div><p class="prompt-text">Crie uma legenda emocional para post de [produto]. Com dor do público, virada emocional, o produto como solução e CTA. Até 150 palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda informativa</span><span class="tag">legenda</span></div><p class="prompt-text">Crie legenda informativa para post de [produto]. Apresenta o produto, explica como funciona, destaca 3 benefícios e CTA. Tom de quem entende do assunto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda curta impactante</span><span class="tag">legenda</span></div><p class="prompt-text">Crie uma legenda de no máximo 3 linhas para [produto]. Gancho na primeira linha, benefício na segunda, CTA na terceira. Máximo impacto em mínimas palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda com pergunta</span><span class="tag">legenda</span></div><p class="prompt-text">Crie legenda para post de [produto] que começa com uma pergunta instigante, apresenta o produto como resposta e termina pedindo comentário ou salvamento do post.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda lista de benefícios</span><span class="tag">legenda</span></div><p class="prompt-text">Crie legenda de post com lista de 5 benefícios de [produto]. Cada benefício em linha separada com emoji. Introdução curta e CTA no final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VÍDEOS DE IA ==================== -->
+<div class="tab-panel" id="tab-videoai">
+  <div class="panel-header">
+    <h2>🤖 Vídeos de IA <span class="count">100 prompts</span></h2>
+    <p>Prompts para Grok, Kling, Pika, RunwayML e outros geradores de vídeo IA</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">👗 Moda e Acessórios</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Sapato feminino - close</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com close em [sapato feminino] sobre mármore branco. Câmera sobe lentamente do chão para o sapato. Luz de estúdio suave. Sem pessoa. Sem texto. Estilo editorial de moda.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Bolsa / acessório girando</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [bolsa/acessório] girando 360 graus sobre fundo preto fosco. Luz pontual destacando textura e detalhes. Sem texto. Estilo produto de luxo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Relógio detalhe</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com close extremo em [relógio] sobre madeira escura. Câmera faz micro-movimento lateral revelando o mostrador. Luz quente dourada. Sem pessoa. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roupa — tecido em movimento</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos mostrando [tecido/peça de roupa] ondulando suavemente com vento leve. Fundo branco ou rose. Textura do tecido em destaque. Sem pessoa. Cinematográfico.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Bijuteria — reflexo de luz</span><span class="tag">moda</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [bijuteria/colar/brinco] em fundo preto, com raios de luz refletindo nas pedras ou metal. Câmera estática, giro suave do objeto. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">💄 Beleza e Skincare</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frasco de perfume</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com frasco de [perfume/produto beleza] em fundo branco com pétalas de flores. Névoa suave saindo do frasco. Luz natural. Câmera lateral lenta. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Skincare — splash de água</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [produto skincare] com gotas de água caindo ao redor. Fundo verde claro ou branco. Sensação de frescor e limpeza. Sem texto. Sem pessoa.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Batom / maquiagem</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [batom/produto de maquiagem] abrindo lentamente revelando a cor. Fundo creme ou rosa. Luz quente. Macro close. Sem texto. Elegante.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Shampoo / condicionador</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [shampoo/condicionador] em fundo branco limpo. Produto se abre e uma gota cai em câmera lenta. Espuma ou textura em destaque. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Creme / hidratante</span><span class="tag">beleza</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [creme/hidratante] com textura cremosa sendo espalhada em slow motion. Fundo pastel. Luz suave de estúdio. Sem texto. Sensorial e elegante.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🏠 Casa e Cozinha</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Utensílio de cozinha</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [utensílio de cozinha] em bancada de madeira clara. Vapor suave ou ingredientes ao redor. Câmera aproxima devagar. Luz quente. Sem texto. Sem pessoa.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Eletrodoméstico em uso</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [eletrodoméstico] ligado em cozinha organizada. Luzes do produto acesas, steam ou movimento mecânico visível. Câmera lenta circular. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto de limpeza</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [produto de limpeza] em fundo branco clean. Bolhas de sabão ou brilho saindo do produto. Luz azul fria. Sensação de higiene. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Organização — antes/depois IA</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 10 segundos mostrando gaveta bagunçada se transformando em gaveta organizada com [produto]. Transição mágica suave. Fundo neutro. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Decoração — ambiente</span><span class="tag">casa</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos mostrando [produto de decoração] em sala bem iluminada. Câmera faz slow reveal do ambiente. Luz natural pela janela. Estilo home decor editorial.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📱 Tecnologia e Eletrônicos</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Fone flutuando</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [fone de ouvido] flutuando levemente em fundo escuro. Partículas de luz ao redor. Rotação lenta 360 graus. Sem texto. Estilo lançamento Apple.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Celular tela acendendo</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [celular] em mesa preta, tela acendendo revelando um app ou foto. Reflexo na superfície. Câmera estática. Luz de tela ilumina o ambiente. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Smartwatch — pulso</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [smartwatch] no pulso de mão sem rosto. Tela acende mostrando dados. Câmera sobe do pulso. Fundo urbano desfocado. Sem texto. Estilo tech moderno.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Setup gamer</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos revelando [produto gamer] em setup com led colorido. Câmera faz pan lento pelo setup. Sem pessoa. Atmosfera de noite. Sem texto. Estilo cinematic.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carregador / cabo</span><span class="tag">tech</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [carregador/cabo] sendo conectado a um celular. Ícone de carga aparece na tela. Fundo clean branco. Câmera macro. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🐾 Pets, Esporte e Outros</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto pet — pata</span><span class="tag">pets</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com pata de cachorro/gato tocando [brinquedo/produto pet]. Câmera macro. Fundo pastel. Luz suave. Tom fofo. Sem texto. Sem rosto humano.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Tênis esportivo</span><span class="tag">esporte</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [tênis esportivo] em chão de academia ou pista. Close na sola, câmera sobe revelando o tênis completo. Luz dramática lateral. Sem texto. Estilo Nike.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Suplemento / produto saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [suplemento/produto saúde] em fundo branco. Pó ou cápsulas espalhando-se em câmera lenta. Luz clean. Estilo farmacêutico elegante. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Produto infantil — colorido</span><span class="tag">família</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [brinquedo/produto infantil] em fundo colorido vibrante. Câmera slow motion circundando o produto. Confetes ou bolhas ao redor. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Acessório carro</span><span class="tag">auto</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [acessório automotivo] sendo instalado no painel do carro. Close no produto. Luz de dia entrando pela janela do carro. Sem pessoa visível. Estilo automóvel.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Translate para inglês</span><span class="tag">ferramenta</span></div><p class="prompt-text">Traduza este prompt de vídeo de IA para o inglês mantendo todas as instruções técnicas de câmera, luz e estilo: "[cole aqui seu prompt em português]". Mantenha termos técnicos precisos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Prompt de imagem produto</span><span class="tag">imagem</span></div><p class="prompt-text">Crie um prompt para gerar imagem de [produto] com fundo branco, sombra suave, luz de estúdio profissional, estilo foto e-commerce. Para usar no Grok, Midjourney ou DALL-E.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Prompt lifestyle produto</span><span class="tag">imagem</span></div><p class="prompt-text">Crie prompt para gerar imagem lifestyle de [produto] com pessoa usando o produto em ambiente real e bonito. Tom aspiracional. Luz natural. Para usar no Grok ou Midjourney.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Story cover IA</span><span class="tag">imagem</span></div><p class="prompt-text">Crie prompt para gerar imagem 9:16 (formato Story) com [produto] em destaque. Fundo gradiente suave, espaço para texto acima e abaixo. Estilo editorial. Para usar no Grok.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Animação de partículas</span><span class="tag">videoai</span></div><p class="prompt-text">Prompt IA: vídeo de 8 segundos com [produto] no centro da tela com partículas douradas ou coloridas girando ao redor. Fundo escuro. Câmera estática. Sem texto. Efeito mágico/luxury.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CARROSSEL ==================== -->
+<div class="tab-panel" id="tab-carrossel">
+  <div class="panel-header">
+    <h2>🖼️ Carrossel <span class="count">100 prompts</span></h2>
+    <p>Roteiros completos de carrossel para Instagram, TikTok e Telegram</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🛍️ Carrossel por Nicho de Produto</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel moda feminina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de carrossel de 6 slides para vender [peça feminina]. Slide 1: capa "O look que você precisava". Slides 2-4: fotos com combinações de looks. Slide 5: benefícios e preço. Slide 6: CTA com link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Crie roteiro de carrossel de 6 slides para [produto de beleza]. Slide 1: antes/depois promessa. Slides 2-3: modo de uso passo a passo. Slide 4: ingredientes destaque. Slide 5: avaliação. Slide 6: CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel tech</span><span class="tag">tech</span></div><p class="prompt-text">Crie roteiro de carrossel de 7 slides para [produto tech]. Slide 1: capa impactante. Slides 2-4: 3 funcionalidades. Slide 5: comparação com concorrente. Slide 6: avaliações. Slide 7: preço + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel casa/organização</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [produto de organização/casa]. Slide 1: ambiente antes bagunçado. Slides 2-3: produto em uso. Slide 4: ambiente organizado. Slide 5: CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel mamãe e bebê</span><span class="tag">família</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [produto bebê/mamãe]. Slide 1: dor da mãe. Slides 2-3: produto facilitando. Slide 4: benefício para o bebê. Slide 5: CTA acolhedor.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie roteiro de carrossel de 6 slides para [produto de saúde]. Slide 1: dor/problema. Slides 2-4: como o produto ajuda. Slide 5: depoimento fictício. Slide 6: CTA responsável.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel esporte</span><span class="tag">esporte</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [produto esportivo]. Slide 1: frase motivacional. Slides 2-3: produto em uso + benefícios. Slide 4: resultado esperado. Slide 5: CTA energético.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [produto pet]. Slide 1: foto fofa de animal + gancho. Slides 2-3: produto e benefício. Slide 4: antes/depois do pet. Slide 5: CTA fofo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel cozinha</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de carrossel de 6 slides para [utensílio de cozinha]. Slide 1: "facilite sua cozinha". Slides 2-4: 3 usos práticos do produto. Slide 5: preço e onde comprar. Slide 6: CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Carrossel moda masculina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de carrossel de 5 slides para [peça masculina]. Slide 1: estilo urbano. Slides 2-3: looks com o produto. Slide 4: material e qualidade. Slide 5: preço + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📐 Formatos Estratégicos de Carrossel</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">5 erros que você comete</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel de 7 slides: "5 erros que você comete sem [produto]". Slide 1: capa de curiosidade. Slides 2-6: um erro por slide. Slide 7: solução = o produto + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Guia de como usar</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel de 7 slides ensinando como usar [produto]. Slide 1: capa "Guia rápido". Slides 2-6: passo a passo. Slide 7: resultado esperado + link para comprar.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Comparação de produtos</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel comparando [produto A] vs [produto B]. Slide 1: capa comparação. Slides 2-4: critérios (preço, qualidade, praticidade). Slide 5: veredito + CTA para o melhor.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Top 5 produtos do nicho</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "Top 5 [produtos do nicho] da Shopee". Slide 1: capa. Slides 2-6: um produto por slide com benefício e preço. Slide 7: CTA com link para ver todos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mitos e verdades</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "Mitos e verdades sobre [produto/categoria]". Slide 1: capa. Slides 2-6: alternando mito (X) e verdade (✓). Slide 7: conclusão com recomendação do produto + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dicas de uso do produto</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "3 dicas para aproveitar mais [produto]". Slide 1: capa. Slides 2-4: uma dica por slide com texto e imagem sugerida. Slide 5: bônus e CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Presente perfeito</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "O presente perfeito para [ocasião]". Slide 1: capa emocional. Slides 2-5: sugestões de produtos com preço. Slide 6: "todos na Shopee" + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Resultado em X dias</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "Resultado em [X dias] usando [produto]". Slide 1: capa promessa. Slides 2-5: progresso dia a dia fictício realista. Slide 6: resultado final + CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Por que vale a pena</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel "Por que vale a pena comprar [produto] na Shopee". Slides: preço, qualidade, avaliações, entrega, garantia. Slide final: link + CTA urgente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Transformação do ambiente</span><span class="tag">formato</span></div><p class="prompt-text">Crie carrossel de transformação de ambiente com [produto de casa/decoração]. Slide 1: antes. Slides 2-4: processo e produto. Slide 5: depois. Slide 6: CTA "você também pode".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📝 Textos de Capa e Slides</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 títulos de capa</span><span class="tag">capa</span></div><p class="prompt-text">Crie 10 títulos de capa para carrossel vendendo [produto]. Cada título com no máximo 6 palavras, impactante e que gere curiosidade para continuar passando os slides.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Textos de slide intermediário</span><span class="tag">slide</span></div><p class="prompt-text">Crie 5 textos curtos de slides intermediários para carrossel sobre [produto]. Cada texto com título de até 5 palavras e descrição de até 20 palavras. Tom direto e convincente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Slide de CTA final</span><span class="tag">cta</span></div><p class="prompt-text">Crie 5 opções de texto para o slide final de carrossel vendendo [produto]. Inclua: frase de urgência, onde comprar (Shopee) e instrução de ação (link bio, swipe, etc).</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Slide de depoimento</span><span class="tag">prova social</span></div><p class="prompt-text">Crie 3 depoimentos fictícios e realistas de clientes que compraram [produto] na Shopee. Tom natural de quem realmente usou, com nome fictício, emoji e estrelas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda para carrossel</span><span class="tag">legenda</span></div><p class="prompt-text">Crie uma legenda de Instagram para acompanhar carrossel de [produto]. Com gancho na primeira linha para parar o scroll, texto de valor e CTA. Máximo 100 palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SHOPEE VÍDEO ==================== -->
+<div class="tab-panel" id="tab-shopee">
+  <div class="panel-header">
+    <h2>🛒 Shopee Vídeo <span class="count">100 prompts</span></h2>
+    <p>Roteiros, ganchos e scripts completos para vídeos dentro da plataforma Shopee</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🎬 Roteiros Completos por Nicho</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro moda feminina</span><span class="tag">moda</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [peça feminina]. Cena 1 (0-5s): gancho com frase. Cena 2 (5-20s): demonstração do produto. Cena 3 (20-30s): preço + "compra aqui".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [produto de beleza]. Começa mostrando o produto, demonstra o uso, mostra resultado e CTA. Inclua sugestão de texto na tela para cada cena.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro produto casa</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 20s para [produto doméstico]. Problema em 5s, produto como solução em 10s, benefício em 3s, CTA em 2s. Texto na tela sugerido para cada momento.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro tech</span><span class="tag">tech</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [produto tech]. Mostrar embalagem, especificações rápidas em texto, demonstração e CTA. Tom de review curto e convincente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie roteiro fofo de Shopee Vídeo de 20s para [produto pet]. Cena com o animal, produto em uso, reação do pet e CTA. Tom emocional e leve. Texto sugerido na tela.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro esporte</span><span class="tag">esporte</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [produto esportivo]. Começa com cena de treino, apresenta o produto, mostra benefício e fecha com CTA energético. Texto na tela incluído.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro cozinha</span><span class="tag">casa</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [utensílio de cozinha]. Mostra a tarefa sem o produto (difícil), depois com o produto (fácil) e CTA. Inclua texto sugerido na tela.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro mamãe e bebê</span><span class="tag">família</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 20s para [produto bebê/mamãe]. Cena carinhosa, produto em uso prático, benefício para o bebê e CTA. Tom acolhedor. Texto na tela sugerido.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 30s para [produto de saúde]. Tom informativo e responsável. Apresenta o problema, o produto, como usar e CTA. Sem promessas médicas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roteiro automóvel</span><span class="tag">auto</span></div><p class="prompt-text">Crie roteiro de Shopee Vídeo de 20s para [acessório automotivo]. Cena dentro do carro ou garagem, produto instalado, resultado visual e CTA. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">⚡ Ganchos e Aberturas de Vídeo</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos virais moda</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos de abertura virais para Shopee Vídeo vendendo [produto de moda]. Cada gancho com até 5 palavras na tela. Mix de curiosidade, promessa e provocação.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos virais beleza</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos de abertura virais para Shopee Vídeo vendendo [produto de beleza]. Foco em transformação e resultado. Cada gancho máximo 5 palavras na tela.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos "não acredito"</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos de surpresa para Shopee Vídeo sobre [produto]. Começam com reação de quem não acredita no preço ou qualidade. Ex: "Esse produto por esse preço?!"</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos pergunta</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos em forma de pergunta para Shopee Vídeo sobre [produto]. Perguntas que geram identificação imediata com o problema que o produto resolve.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 ganchos "segredo"</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos no estilo "segredo" ou "descoberta" para Shopee Vídeo de [produto]. Tom de quem vai revelar algo que pouca gente sabe. Cria curiosidade e mantém o espectador.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Gancho para pet</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 ganchos emotivos para Shopee Vídeo de [produto pet]. Foco no amor ao animal. Cada gancho máximo 5 palavras que parem o scroll instantaneamente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🗣️ Narração, Texto na Tela e CTA</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Narração em off</span><span class="tag">narração</span></div><p class="prompt-text">Crie um texto de narração em off para vídeo de 30s sobre [produto]. Linguagem coloquial, ritmo rápido, benefício principal, preço e CTA. Para usar com voz sintética de IA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Textos para tela — 5 cenas</span><span class="tag">tela</span></div><p class="prompt-text">Crie 5 textos curtos (máx 4 palavras cada) para aparecer na tela durante vídeo de [produto]. Um por cena: gancho, problema, produto, benefício, CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 CTAs para Shopee Vídeo</span><span class="tag">cta</span></div><p class="prompt-text">Crie 10 chamadas para ação diferentes para o final de Shopee Vídeo sobre [produto]. Curtas, diretas, com variações de urgência, facilidade de compra e benefício.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Título do vídeo Shopee</span><span class="tag">título</span></div><p class="prompt-text">Crie 5 títulos otimizados para Shopee Vídeo de [produto]. Titles com palavras-chave de busca + benefício. Máx 80 caracteres. Para aparecer na busca da plataforma.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Descrição do vídeo</span><span class="tag">descrição</span></div><p class="prompt-text">Crie uma descrição persuasiva de 100 palavras para Shopee Vídeo de [produto]. Com palavras-chave, benefícios, modo de uso e CTA para comprar. Otimizada para busca.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TELEGRAM ==================== -->
+<div class="tab-panel" id="tab-telegram">
+  <div class="panel-header">
+    <h2>✈️ Telegram <span class="count">80 prompts</span></h2>
+    <p>Mensagens para canais, grupos e listas de afiliados no Telegram</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📣 Canal de Ofertas</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de oferta canal</span><span class="tag">canal</span></div><p class="prompt-text">Crie um post de oferta para canal Telegram de afiliados Shopee sobre [produto]. Com emoji de destaque, preço, 2 benefícios, link e hashtag da categoria.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post com imagem</span><span class="tag">canal</span></div><p class="prompt-text">Crie legenda para post com imagem no canal Telegram sobre [produto]. Texto que complementa a imagem sem repeti-la, destaca benefício e termina com link clicável.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post relâmpago</span><span class="tag">urgência</span></div><p class="prompt-text">Crie post urgente para canal Telegram: [produto] em promoção por tempo limitado. Use emoji de sirene, preço original vs preço atual, link e "corre!".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post curadoria semanal</span><span class="tag">canal</span></div><p class="prompt-text">Crie post de curadoria semanal para canal Telegram com 5 produtos recomendados ([produto1] a [produto5]). Cada produto com uma linha de benefício e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de boas-vindas</span><span class="tag">canal</span></div><p class="prompt-text">Crie post de boas-vindas para novo membro do canal Telegram de ofertas Shopee. Explica o que vai receber, como aproveitar e peça para ativar notificações.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post frete grátis</span><span class="tag">benefício</span></div><p class="prompt-text">Crie post para canal Telegram sobre frete grátis em [produto]. Emoji de caminhão, benefício extra de economizar, link e lembrete de que pode acabar.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post dica de compra</span><span class="tag">conteúdo</span></div><p class="prompt-text">Crie post de conteúdo para canal Telegram com dica de como escolher [categoria de produto] na Shopee. Termina recomendando [produto específico] com link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post avaliações</span><span class="tag">prova social</span></div><p class="prompt-text">Crie post para canal Telegram usando avaliações como argumento para [produto]. Mencione nota e número de avaliações, destaque comentário positivo fictício realista e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post top 3 da semana</span><span class="tag">canal</span></div><p class="prompt-text">Crie post "Top 3 achados da semana" para canal Telegram com [produto1], [produto2], [produto3]. Cada um com emoji, benefício e link. Tom de curador de ofertas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post encerramento</span><span class="tag">urgência</span></div><p class="prompt-text">Crie post avisando que [produto] vai sair de promoção em breve no canal Telegram. Tom de aviso final, benefício e link com "última chance".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">💬 Grupos e Mensagens Interativas</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mensagem grupo Telegram</span><span class="tag">grupo</span></div><p class="prompt-text">Crie mensagem para grupo Telegram de afiliados sobre [produto]. Tom de comunidade, compartilhamento de achado, benefício e link. Sem parecer spam.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Enquete de produto</span><span class="tag">engajamento</span></div><p class="prompt-text">Crie uma enquete para grupo/canal Telegram sobre [categoria de produto]. Com 2-3 opções e mensagem de introdução que apresente [produto] como o favorito depois do resultado.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Resposta a dúvida comum</span><span class="tag">grupo</span></div><p class="prompt-text">Crie resposta para quando alguém perguntar no grupo Telegram "vale a pena comprar [produto] na Shopee?". Resposta natural, com argumentos reais e link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mini review grupo</span><span class="tag">grupo</span></div><p class="prompt-text">Crie mini review de 5 linhas de [produto] para compartilhar no grupo Telegram. Tom de quem usou, com pro e contra reais e link para quem quiser comprar.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de nicho moda</span><span class="tag">moda</span></div><p class="prompt-text">Crie post para canal Telegram de moda sobre [peça]. Com emoji de roupa, estilo, onde usar e link Shopee. Tom de fashionista que descobriu um baratão.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de nicho tech</span><span class="tag">tech</span></div><p class="prompt-text">Crie post para canal Telegram de tecnologia sobre [produto tech]. Com specs principais, compatibilidade, preço e link. Tom de entusiasta de tecnologia.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de nicho beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Crie post para canal Telegram de beleza sobre [produto]. Tom de rotina de cuidados, resultado esperado e link Shopee. Emoji e linguagem feminina e próxima.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post de nicho pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie post para canal Telegram de pets sobre [produto]. Tom fofo e emocional para tutores de animais. Benefício para o pet e link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post para grupo de mães</span><span class="tag">família</span></div><p class="prompt-text">Crie post para grupo Telegram de mães sobre [produto bebê/infantil]. Tom acolhedor de mãe para mãe, com benefício prático e link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Post para grupo de academia</span><span class="tag">esporte</span></div><p class="prompt-text">Crie post para grupo Telegram de academia/fitness sobre [produto esportivo]. Tom motivacional, com benefício de treino e link Shopee. Para quem malha.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VÍDEOS POR NICHO ==================== -->
+<div class="tab-panel" id="tab-nichos">
+  <div class="panel-header">
+    <h2>🏷️ Vídeos com Influencer por Nicho <span class="count">24 nichos</span></h2>
+    <p>Prompts de vídeo com influencer para cada nicho da Shopee</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">👗 Moda</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roupa Feminina</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 a 20 segundos com influencer feminina vestindo [nome da peça]. Cenário: espelho de quarto ou closet iluminado. Ela gira mostrando o look completo. Fundo neutro ou rose. Sem texto. Espaço para editar a fala.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roupa Plus Size</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 a 20 segundos com influencer plus size vestindo [nome da peça]. Cenário: ambiente claro e acolhedor. Ela mostra o caimento da roupa de frente e de lado com confiança. Sem texto. Espaço para editar a fala.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Roupa Masculina</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 a 20 segundos com influencer masculino vestindo [nome da peça]. Cenário: ambiente urbano ou quarto moderno. Ele mostra o look de cima a baixo. Tom descontraído. Sem texto. Espaço para editar a fala.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Sapato Masculino</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos focado nos pés com influencer masculino usando [modelo do sapato]. Cenário: calçada ou chão de madeira. Close no sapato andando, depois enquadramento do look completo. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Sapato Feminino</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer feminina usando [modelo do sapato]. Cenário: chão claro ou tapete. Close no pé, depois zoom out mostrando o look. Luz quente. Sem texto. Espaço para editar a fala.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Acessórios de Moda</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer usando [tipo de acessório: colar, brinco, pulseira]. Cenário: fundo claro ou espelho. Close no acessório, depois rosto e pescoço. Luz natural. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Moda Infantil</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos com criança vestindo [nome da peça infantil]. Cenário: quarto infantil ou jardim colorido. Criança brincando naturalmente com a roupa. Tom alegre. Sem texto. Espaço para fala da mãe.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Relógios</span><span class="tag">moda</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer usando [modelo do relógio] no pulso. Cenário: mesa de madeira ou fundo elegante. Close no pulso, depois no rosto sorrindo. Luz natural. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">💻 Tech</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Celular e Dispositivos</span><span class="tag">tech</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer segurando [nome do celular/dispositivo]. Cenário: mesa clean ou fundo branco. Ela mostra o produto de frente e de trás, abre a câmera ou tela. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Computadores e Acessórios</span><span class="tag">tech</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer em setup ou mesa de escritório usando [nome do produto]. Cenário: mesa organizada com luz de led. Mostra o produto em uso real. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Jogos e Consoles</span><span class="tag">tech</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer segurando ou usando [nome do console/acessório]. Cenário: quarto gamer com led colorido ao fundo. Tom animado e jovem. Sem texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Áudio</span><span class="tag">tech</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer usando [fone/caixa de som/produto de áudio]. Cenário: quarto moderno ou setup. Ela coloca o fone, fecha os olhos curtindo. Close no produto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🏠 Casa</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Eletrodomésticos</span><span class="tag">casa</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer usando [nome do eletrodoméstico] em cena real. Cenário: cozinha ou lavanderia organizada. Ela demonstra o produto funcionando. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Casa e Construção</span><span class="tag">casa</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer mostrando [nome do produto] em ambiente doméstico ou obra. Cenário: cômodo em reforma ou casa organizada. Demonstra o uso prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Cozinha e Utensílios</span><span class="tag">casa</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer usando [nome do utensílio] na cozinha. Cenário: bancada organizada e iluminada. Ela demonstra o uso do produto preparando algo simples. Tom prático.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Organização e Decoração</span><span class="tag">casa</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer organizando ou decorando um cômodo com [nome do produto]. Cenário: antes e depois do espaço. Ela mostra a transformação do ambiente.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🚗 Auto • 💄 Beleza • 🏋️ Esporte • 👨‍👩‍👧 Família • 🐾 Pets • 📚 Educação • ❤️ Saúde</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Acessórios Automóveis</span><span class="tag">auto</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer instalando ou mostrando [nome do acessório] no carro. Cenário: garagem ou estacionamento limpo. Mostra o produto antes e depois de instalar.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Motocicletas</span><span class="tag">auto</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer ao lado ou em cima da moto usando [capacete/acessório]. Cenário: rua ou garagem. Ele mostra o produto com a moto ao fundo. Tom aventureiro.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Vídeo de 15 a 20 segundos com influencer aplicando ou usando [nome do produto de beleza]. Cenário: penteadeira iluminada ou banheiro clean. Close no produto e no rosto. Tom elegante.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer mostrando [nome do produto de saúde]. Cenário: ambiente clean, branco ou ao ar livre. Tom sério e confiante. Ela segura o produto e demonstra o uso.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Esporte e Lazer</span><span class="tag">esporte</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer usando ou demonstrando [nome do produto esportivo]. Cenário: academia, parque ou área aberta. Tom energético. Mostra o produto em movimento.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Mamãe e Bebê</span><span class="tag">família</span></div><p class="prompt-text">Vídeo de 20 segundos com influencer mãe usando ou mostrando [nome do produto]. Cenário: quarto de bebê ou sala aconchegante. Tom carinhoso e prático. Demonstra o uso com o bebê.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Animais Domésticos</span><span class="tag">pets</span></div><p class="prompt-text">Vídeo de 15 a 20 segundos com influencer e seu pet usando [nome do produto]. Cenário: sala ou jardim. O pet interage com o produto naturalmente. Tom fofo e divertido.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Escola e Papelaria</span><span class="tag">educação</span></div><p class="prompt-text">Vídeo de 15 segundos com influencer mostrando [nome do produto escolar]. Cenário: mesa de estudos organizada. Ela abre o produto, mostra os detalhes e usa no caderno ou mochila.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== COPY & LEGENDAS ==================== -->
+<div class="tab-panel" id="tab-copy">
+  <div class="panel-header">
+    <h2>✍️ Copy & Legendas <span class="count">80 prompts</span></h2>
+    <p>Copies, legendas e textos persuasivos para todos os canais</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📣 Copies Rápidas</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy curta 200 chars</span><span class="tag">copy</span></div><p class="prompt-text">Crie uma frase persuasiva de até 200 caracteres para vender [produto], com gancho forte, benefício direto, linguagem simples e CTA final.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">5 copies por nicho</span><span class="tag">copy</span></div><p class="prompt-text">Crie 5 copies curtas e diferentes para vender [produto]. Cada uma com abordagem diferente: emocional, racional, urgência, curiosidade e benefício. Até 150 chars cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy AIDA</span><span class="tag">copy</span></div><p class="prompt-text">Crie uma copy seguindo o modelo AIDA para [produto]: Atenção (gancho), Interesse (problema), Desejo (solução/benefício), Ação (CTA). Tom direto e persuasivo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy storytelling</span><span class="tag">copy</span></div><p class="prompt-text">Crie uma mini copy em formato de história de 3 linhas para [produto]. Começar com situação de dor, virada com o produto e resultado final. Tom humano e real.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy de urgência</span><span class="tag">urgência</span></div><p class="prompt-text">Crie uma copy com senso de urgência para [produto], destacando desconto, poucas unidades e CTA para aproveitar agora. Sem mentira, com urgência realista.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy de escassez</span><span class="tag">escassez</span></div><p class="prompt-text">Crie uma chamada persuasiva para [produto] usando escassez realista, benefício principal e CTA curto. Tom de aviso, não de pressão.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 headlines</span><span class="tag">copy</span></div><p class="prompt-text">Crie 10 headlines impactantes para anunciar [produto]. Mix de formatos: pergunta, promessa, curiosidade, números e transformação. Para usar como primeira linha de qualquer texto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy para bio de afiliado</span><span class="tag">copy</span></div><p class="prompt-text">Crie uma bio de Instagram para afiliado Shopee de [nicho]. Com proposta de valor, o que posta, chamada para seguir e link. Máximo 150 caracteres.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy de comparação</span><span class="tag">copy</span></div><p class="prompt-text">Crie copy comparando [produto] com uma solução mais cara/genérica, destacando por que o da Shopee vale mais a pena. Tom direto sem atacar concorrentes.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Copy de prova social</span><span class="tag">copy</span></div><p class="prompt-text">Crie copy usando prova social para [produto]: número de vendas, avaliação e um mini depoimento fictício realista. Para post, story ou mensagem de WhatsApp.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">📝 Legendas por Canal</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda Instagram feed</span><span class="tag">instagram</span></div><p class="prompt-text">Crie uma legenda curta para Instagram vendendo [produto], com dor do público, solução prática, tom de conversa e chamada para ação. Máximo 100 palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda longa engajamento</span><span class="tag">instagram</span></div><p class="prompt-text">Crie legenda longa de 200 palavras para [produto]. Comece com história de identificação, apresente o produto naturalmente, 3 benefícios e CTA. Tom de conversa.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda Reels</span><span class="tag">reels</span></div><p class="prompt-text">Crie legenda de Reels para [produto]. Gancho na primeira linha, emoji, 3 bullets de benefício, CTA e hashtags estratégicas. Para parar o scroll.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda TikTok</span><span class="tag">tiktok</span></div><p class="prompt-text">Crie legenda curta para TikTok sobre [produto]. Máximo 2 linhas + hashtags. Tom jovem e direto. Gancho que faz a pessoa querer ver o vídeo até o fim.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Legenda Pinterest</span><span class="tag">pinterest</span></div><p class="prompt-text">Crie descrição para pin no Pinterest sobre [produto]. Com palavras-chave relevantes, benefício, onde comprar e CTA. Máximo 100 palavras. Otimizado para busca.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SEO & TÍTULOS ==================== -->
+<div class="tab-panel" id="tab-seo">
+  <div class="panel-header">
+    <h2>🔍 SEO & Títulos <span class="count">60 prompts</span></h2>
+    <p>Títulos, descrições e palavras-chave otimizadas para a Shopee</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🏷️ Títulos Shopee</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">5 títulos otimizados</span><span class="tag">seo</span></div><p class="prompt-text">Crie 5 títulos otimizados para Shopee para [produto], usando palavras-chave, benefício e termos que aumentem a busca. Máx 100 caracteres cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Título com palavras-chave</span><span class="tag">seo</span></div><p class="prompt-text">Crie um título de produto Shopee para [produto] com as principais palavras-chave que o comprador buscaria. Inclua marca, modelo, material ou cor se relevante.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Palavras-chave do nicho</span><span class="tag">seo</span></div><p class="prompt-text">Liste 20 palavras-chave que compradores usam para encontrar [produto ou nicho] na Shopee. Mix de termos genéricos, específicos e long tail. Para uso em título e descrição.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Descrição de produto</span><span class="tag">seo</span></div><p class="prompt-text">Crie uma descrição persuasiva e otimizada para [produto], com benefícios, modo de uso, diferenciais e CTA. Inclua palavras-chave naturalmente. 200-300 palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Tags Shopee</span><span class="tag">seo</span></div><p class="prompt-text">Crie 10 tags ideais para o produto [produto] na Shopee. Palavras-chave relevantes, termos de busca populares e categorias. Uma por linha, sem # ou vírgula.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Perguntas frequentes</span><span class="tag">seo</span></div><p class="prompt-text">Crie 5 perguntas frequentes com respostas para a página de [produto] na Shopee. Perguntas que compradores reais fazem, com respostas claras e convincentes.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Specs em bullets</span><span class="tag">seo</span></div><p class="prompt-text">Crie uma lista de especificações técnicas em bullets para [produto]. Formato: característica + valor. Clara, completa e com as informações que o comprador mais busca.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Título para anúncio</span><span class="tag">anúncio</span></div><p class="prompt-text">Crie 5 títulos para anúncio pago de [produto] no formato Google Ads ou Meta Ads. Com benefício, urgência ou número. Máximo 30 caracteres cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FRASES DE IMPACTO ==================== -->
+<div class="tab-panel" id="tab-frases">
+  <div class="panel-header">
+    <h2>💥 Frases de Impacto <span class="count">100 prompts</span></h2>
+    <p>Frases curtas e poderosas por nicho para Stories, posts e mensagens</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🏷️ Frases por Nicho</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases moda feminina</span><span class="tag">moda</span></div><p class="prompt-text">Crie 10 frases curtas e impactantes para divulgar [peça de moda feminina]. Até 15 palavras cada. Mix: emocional, aspiracional, urgência e benefício. Tom feminino e acessível.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases moda masculina</span><span class="tag">moda</span></div><p class="prompt-text">Crie 10 frases curtas para divulgar [peça masculina]. Tom descontraído e direto. Foco em estilo, conforto e custo-benefício. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases beleza</span><span class="tag">beleza</span></div><p class="prompt-text">Crie 10 frases elegantes e persuasivas para divulgar [produto de beleza]. Mix de tom aspiracional, prático e de resultado. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases produto de casa</span><span class="tag">casa</span></div><p class="prompt-text">Crie 10 frases curtas para divulgar [produto de casa]. Foco em praticidade, economia de tempo e transformação. Tom próximo e direto. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases bebê/infantil</span><span class="tag">família</span></div><p class="prompt-text">Crie 10 frases para divulgar [produto infantil]. Tom carinhoso, foco no bem-estar da criança. Até 15 palavras. Pelo menos 2 com emojis fofinhos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases esporte</span><span class="tag">esporte</span></div><p class="prompt-text">Crie 10 frases motivacionais e persuasivas para [produto esportivo]. Tom energético. Mix de benefício, motivação e resultado. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases tech</span><span class="tag">tech</span></div><p class="prompt-text">Crie 10 frases diretas e impactantes para [produto tech]. Tom de quem entende de tecnologia. Foco em funcionalidade, preço e inovação. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases pet</span><span class="tag">pets</span></div><p class="prompt-text">Crie 10 frases emocionais e fofas para divulgar [produto pet]. Foco no amor ao animal. Tom de tutor apaixonado. Até 15 palavras. Com emojis de animais.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases saúde</span><span class="tag">saúde</span></div><p class="prompt-text">Crie 10 frases de impacto para divulgar [produto de saúde]. Tom de cuidado e responsabilidade. Sem promessas médicas. Até 15 palavras. Foco em bem-estar.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases automóvel</span><span class="tag">auto</span></div><p class="prompt-text">Crie 10 frases para divulgar [acessório automotivo]. Tom de motorista para motorista. Foco em praticidade, segurança e custo-benefício. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">⚡ Frases por Objetivo</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 frases de urgência</span><span class="tag">urgência</span></div><p class="prompt-text">Crie 10 frases de urgência para qualquer produto. Sem mencionar produto específico. Para usar como abertura de mensagem ou post. Até 10 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 frases de escassez</span><span class="tag">escassez</span></div><p class="prompt-text">Crie 10 frases de escassez para usar em qualquer venda. Focadas em pouco estoque, oferta por tempo limitado ou lote acabando. Realistas e não alarmistas.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 CTAs criativos</span><span class="tag">cta</span></div><p class="prompt-text">Crie 10 chamadas para ação criativas e diferentes para usar no final de posts, stories e mensagens. Além do básico "clique aqui". Variar tom: divertido, urgente, curioso.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">10 aberturas de gancho</span><span class="tag">gancho</span></div><p class="prompt-text">Crie 10 frases de abertura (gancho) para usar no início de qualquer post ou mensagem. Para parar o scroll e prender atenção. Genéricas o suficiente para adaptar a qualquer produto.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases para frete grátis</span><span class="tag">benefício</span></div><p class="prompt-text">Crie 10 frases criativas para anunciar frete grátis em [produto]. Além de "frete grátis". Tom que valoriza o benefício sem exagerar. Para story, post e mensagem.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases para Dia das Mães</span><span class="tag">datas</span></div><p class="prompt-text">Crie 10 frases emocionais e persuasivas para vender [produto] no Dia das Mães. Mix de sentimento, praticidade de presente e CTA. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases para Natal</span><span class="tag">datas</span></div><p class="prompt-text">Crie 10 frases natalinas para vender [produto]. Tom de presente ideal, clima de festa e oferta especial. Até 15 palavras cada.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Frases Black Friday</span><span class="tag">datas</span></div><p class="prompt-text">Crie 10 frases agressivas e animadas para Black Friday de [produto]. Tom de "melhor preço do ano". Urgência, desconto e CTA. Até 15 palavras.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DATAS ESPECIAIS ==================== -->
+<div class="tab-panel" id="tab-datas">
+  <div class="panel-header">
+    <h2>🎉 Datas Especiais <span class="count">60 prompts</span></h2>
+    <p>Copies e roteiros para datas comemorativas e sazonalidade</p>
+  </div>
+  <div class="subgroup">
+    <div class="subgroup-title">🗓️ Datas do Ano</div>
+    <div class="prompts-grid">
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dia das Mães — copy</span><span class="tag">data</span></div><p class="prompt-text">Crie uma copy emocional para vender [produto] no Dia das Mães, com foco em presente útil, carinho e CTA. Tom que toca o coração de filhos e maridos.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dia das Mães — story</span><span class="tag">data</span></div><p class="prompt-text">Crie roteiro de 3 Stories para vender [produto] no Dia das Mães. Story 1: emoção e data. Story 2: produto como presente perfeito. Story 3: urgência + link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Natal — copy</span><span class="tag">data</span></div><p class="prompt-text">Crie uma copy de Natal para [produto], com ideia de presente, benefício e chamada para compra. Tom festivo e urgente (prazo de entrega).</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Natal — carrossel</span><span class="tag">data</span></div><p class="prompt-text">Crie roteiro de carrossel de Natal com 6 slides sugerindo [produto] como presente. Slide 1: capa natalina. Slides 2-4: benefícios do produto. Slide 5: prazo. Slide 6: CTA.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Black Friday — copy</span><span class="tag">data</span></div><p class="prompt-text">Crie copy agressiva de Black Friday para [produto]. Preço de Black, urgência máxima, benefício e link. Tom de "não vai achar mais barato".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Black Friday — story</span><span class="tag">data</span></div><p class="prompt-text">Crie roteiro de 3 Stories de Black Friday para [produto]. Story 1: "Chegou a Black". Story 2: produto + preço especial. Story 3: "só hoje" + link.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dia dos Namorados</span><span class="tag">data</span></div><p class="prompt-text">Crie copy romântica e persuasiva para [produto] no Dia dos Namorados. Tom de presente ideal para o casal, com emoção e CTA. Para story, post e WhatsApp.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dia dos Pais</span><span class="tag">data</span></div><p class="prompt-text">Crie copy para [produto] no Dia dos Pais. Tom de presente prático e pensativo para o pai. Mix de humor leve e emoção. CTA com link Shopee.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Dia das Crianças</span><span class="tag">data</span></div><p class="prompt-text">Crie copy animada para [produto infantil/brinquedo] no Dia das Crianças. Tom de magia e alegria para pais que querem presentear. Urgência de prazo.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Volta às aulas</span><span class="tag">data</span></div><p class="prompt-text">Crie copy para [produto escolar/mochila/papelaria] na volta às aulas. Tom prático para pais, com custo-benefício e link Shopee. Urgência de prazo de entrega.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Aniversário Shopee</span><span class="tag">data</span></div><p class="prompt-text">Crie copy para promoção de aniversário da Shopee vendendo [produto]. Tom comemorativo, destaque de desconto especial e CTA de "aproveita essa data".</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+      <div class="prompt-card"><div class="card-header"><span class="card-title">Início de mês</span><span class="tag">rotina</span></div><p class="prompt-text">Crie mensagem de início de mês para grupo/canal sobre [produto]. Tom de "novo mês, nova meta", com o produto como aliado e link. Para Telegram ou WhatsApp.</p><button class="copy-btn" onclick="copiarPrompt(this)">Copiar prompt</button></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  Prompts Rozana Escobar © 2025 — <a href="https://www.rozanaescobar.com.br" target="_blank">rozanaescobar.com.br</a> | <a href="https://wa.me/" target="_blank">WhatsApp</a> | <a href="https://www.instagram.com/guiarapidoshopeeafiliado" target="_blank">Instagram</a>
+</footer>
+
+<div id="toast">✓ Prompt copiado!</div>
+
+<script>
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  function copiarPrompt(btn) {
+    const card = btn.closest('.prompt-card');
+    const texto = card.querySelector('.prompt-text').innerText;
+    navigator.clipboard.writeText(texto).then(() => {
+      btn.textContent = '✓ Copiado!';
+      btn.classList.add('copied');
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        btn.textContent = 'Copiar prompt';
+        btn.classList.remove('copied');
+        toast.classList.remove('show');
+      }, 2000);
+    }).catch(() => {
+      const el = document.createElement('textarea');
+      el.value = texto;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      btn.textContent = '✓ Copiado!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copiar prompt';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
